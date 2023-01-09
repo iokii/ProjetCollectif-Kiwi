@@ -40,6 +40,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Container de l'image
             Container(
               margin: const EdgeInsets.only(bottom: 100.0),
               child: Image.asset(
@@ -48,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 100.0,
               ),
             ),
+            // Container de l'input username
             Container(
                 margin: const EdgeInsets.only(bottom: 20.0),
                 child: TextField(
@@ -61,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         )))),
+            // Container de l'input password
             Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               child: TextField(
