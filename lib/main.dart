@@ -5,7 +5,7 @@ import 'global.dart';
 
 void main() => runApp(MyApp());
 
-const loginText = "Log into $applicationName";
+const loginText = "Log into $applicationName !";
 
 class MyApp extends StatelessWidget {
   @override
