@@ -13,7 +13,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reset Password"),
+        title: const Text("Reset Password"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,12 +31,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 ),
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 // Send password reset email here.
               },
-              child: Text("Send reset email"),
+              child: const Text("Send reset email"),
             ),
           ],
         ),

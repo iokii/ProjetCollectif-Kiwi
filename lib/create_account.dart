@@ -13,7 +13,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Account"),
+        title: const Text("Create Account"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,12 +31,12 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 ),
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 // Create account here.
               },
-              child: Text("Create account"),
+              child: const Text("Create account"),
             ),
           ],
         ),
