@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   // Validate the login form here.
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(lightGray),
+                  backgroundColor: MaterialStateProperty.all(lightBlue),
                 ),
                 child: const Text(loginText)),
             Container(
