@@ -61,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
                 onPressed: () {
+                  Navigator.pushNamed(context, '/homepage');
                   // Validate the login form here.
                 },
                 style: ButtonStyle(
