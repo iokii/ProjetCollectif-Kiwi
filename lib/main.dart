@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'MessPage.dart';
 import 'homepage.dart';
 import 'reset_password.dart';
 import 'create_account.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
         '/homepage': (context) => HomePage(),
+        '/message': (context) => MessPage(false)
       },
     );
   }

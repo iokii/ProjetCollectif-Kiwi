@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/footer.dart';
 import 'package:project/header.dart';
 import 'global.dart';
 
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
+      bottomNavigationBar: footer(context),
     );
   }
 }
