@@ -19,14 +19,20 @@ class _MessPageState extends State<MessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(),
-      backgroundColor: darkGray,
-      body: ListView.builder(
-          itemBuilder: (context, index) => SingleMessage(Message(
-              "https://avatars.githubusercontent.com/u/98802482?v=4",
-              "Fitz",
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus a urna sed laoreet. Donec auctor tellus nec libero bibendum, ac accumsan nisl laoreet."))),
-      bottomNavigationBar: footer(context),
-    ); // Scaffold
+        appBar: header(),
+        backgroundColor: darkGray,
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) => SingleMessage(Message(
+                    "Fitz",
+                    "https://avatars.githubusercontent.com/u/98802482?v=4",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nunc dui, pulvinar auctor nibh ut, consectetur suscipit augue. Nulla elementum purus gravida quam blandit varius. Maecenas scelerisque lacus at massa fermentum, eget viverra diam ultrices. Aliquam sit amet tincidunt metus. Sed eleifend..")),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: footer(context));
   }
 }
