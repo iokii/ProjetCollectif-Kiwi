@@ -47,6 +47,11 @@ class _PostListState extends State<PostList> {
                   });
                 },
               ),
+              Flexible(
+                child: Text(widget.post.title,
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                    overflow: TextOverflow.ellipsis),
+              ),
               IconButton(
                 icon: const Icon(Icons.collections),
                 color: Colors.white,
@@ -55,8 +60,6 @@ class _PostListState extends State<PostList> {
                 },
               ),
             ]),
-            Text(widget.post.title,
-                style: const TextStyle(color: Colors.white, fontSize: 16)),
             // Text(widget.post.desc,
             //     textAlign: TextAlign.justify,
             //     style: const TextStyle(color: Colors.white, fontSize: 10)),

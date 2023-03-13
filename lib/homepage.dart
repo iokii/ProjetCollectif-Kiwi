@@ -18,11 +18,18 @@ class _HomePageState extends State<HomePage> {
   final passwordController = TextEditingController();
   var listPosts = [
     Post(
-        "Giga photo avec la team",
+        "Giga photo avec la team ou quoi la ah oui",
         "Une image de coucher de soleil sur l'océan: Les nuances dorées et oranges du soleil couchant se reflètent sur les vagues calmes de l'océan. Le ciel est rempli de nuages ​​roses et pourpres, créant un spectacle magnifique et paisible.",
         "https://www.photo-paysage.com/albums/userpics/10001/thumb_Crepuscule_sur_le_lac_Leman.jpg",
         "Romain ou quoi",
         "https://dl.memuplay.com/new_market/img/com.vicman.newprofilepic.icon.2022-06-07-21-33-07.png",
+        ""),
+    Post(
+        "La Joconde",
+        "Petit dessin pepouze",
+        "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQ-FvbbAq5IaJUhtwxXEwY0D-jiZju02ejnNHx_bQWL_27GF3srhwJgqusMAqKh3QqU",
+        "De Vinci",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpQTpymriyzhjQEivOvItdFuSWXQJkJZ0jXgenzThOXA&s",
         ""),
     Post(
         "Coeur coeur oui",
