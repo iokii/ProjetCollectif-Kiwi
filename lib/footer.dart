@@ -14,24 +14,28 @@ BottomAppBar footer(context) {
           onPressed: () {
             Navigator.pushNamed(context, '/homepage');
           },
-          icon: const Icon(Icons.home,color: Colors.white,size: 40),
+
+          icon: const Icon(Icons.home),
           iconSize: 50,
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.search,color: Colors.white,size: 40),
+
+          icon: const Icon(Icons.search),
           iconSize: 50,
         ),
         IconButton(
           onPressed: () {
             Navigator.pushNamed(context, '/message');
           },
-          icon: const Icon(Icons.message,color: Colors.white,size: 40),
+
+          icon: const Icon(Icons.message),
           iconSize: 50,
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.person,color: Colors.white,size: 40),
+
+          icon: const Icon(Icons.person),
           iconSize: 50,
         )
       ],

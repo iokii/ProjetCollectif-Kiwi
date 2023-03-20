@@ -4,10 +4,12 @@ import 'package:project/global.dart';
 AppBar header({bool showParameter = false}) {
   return AppBar(
     backgroundColor: semiLightGray,
-    leading: const CircleAvatar(
-      backgroundImage: NetworkImage("https://i.imgur.com/BoN9kdC.png"),
-      maxRadius: 3,
-    ),
+    leading: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: const CircleAvatar(
+          backgroundImage: NetworkImage("https://i.imgur.com/BoN9kdC.png"),
+          radius: 10,
+        )),
     // if show parameter, show an icon
     actions: showParameter
         ? <Widget>[

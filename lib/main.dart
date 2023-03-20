@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/DetailsPublication.dart';
+import 'Components/ExtractArgumentsScreen.dart';
+import 'MessPage.dart';
+import 'homepage.dart';
+import 'discuss.dart';
 import 'reset_password.dart';
 import 'create_account.dart';
 import 'login.dart';
@@ -17,6 +21,9 @@ class MyApp extends StatelessWidget {
         '/details_publication': (context) => DetailsPublication("2"),
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
+        '/homepage': (context) => HomePage(),
+        '/message': (context) => MessPage(false),
+        ExtractArgumentsDiscuss.discuss: (context) => ExtractArgumentsDiscuss()
       },
     );
   }
