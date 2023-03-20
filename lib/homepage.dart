@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/footer.dart';
 import 'package:project/header.dart';
 import 'package:project/post.dart';
 import 'package:project/post_list.dart';
@@ -50,15 +51,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: header(),
-        backgroundColor: darkGray,
-        body: SizedBox(
-          child: ListView.builder(
-            itemCount: listPosts.length,
-            itemBuilder: (context, index) {
-              return Card(child: PostList(listPosts[index]));
-            },
-          ),
-        ));
+      appBar: header(),
+      backgroundColor: darkGray,
+      body:
+          // show every posts in the list
+          ListView.builder(
+        itemCount: listPosts.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(listPosts[index]),
+            ),
+          );
+        },
+      ),
+      bottomNavigationBar: footer(context),
+    );
+
   }
 }
