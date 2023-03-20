@@ -53,20 +53,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: header(),
       backgroundColor: darkGray,
-      body:
-          // show every posts in the list
-          ListView.builder(
-        itemCount: listPosts.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              title: Text(listPosts[index]),
-            ),
-          );
-        },
+      body: SizedBox(
+        child: ListView.builder(
+          itemCount: listPosts.length,
+          itemBuilder: (context, index) {
+            return Card(child: PostList(listPosts[index]));
+          },
+        ),
       ),
       bottomNavigationBar: footer(context),
     );
-
   }
 }
