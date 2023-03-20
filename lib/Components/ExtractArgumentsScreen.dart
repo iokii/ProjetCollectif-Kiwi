@@ -115,7 +115,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
                 child: Column(children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back),
-                    color: darkGray,
+                    color: Colors.white,
                     onPressed: () {
                       Navigator.pushNamed(context, '/message');
                     },
@@ -123,25 +123,29 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
                   const Padding(padding: EdgeInsets.only(bottom: 15))
                 ])),
           ),
-          Container(
-            color: Colors.red,
-            height: 525,
+          SizedBox(
+            height: 530,
             child: Column(children: messages()),
           ),
           Align(
             alignment: Alignment.bottomCenter,
+            // ignore: prefer_const_literals_to_create_immutables
             child: Row(children: [
-              // TextField(
-              //     controller: messageController,
-              //     decoration: InputDecoration(
-              //         labelText: "Username",
-              //         labelStyle: const TextStyle(color: Colors.white),
-              //         hintText: "Username",
-              //         fillColor: Color(0xFF00C2DD),
-              //         filled: true,
-              //         border: OutlineInputBorder(
-              //           borderRadius: BorderRadius.circular(10.0),
-              //         )))
+              Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Container(
+                    height: 35,
+                    width: MediaQuery.of(context).size.width - 140,
+                    decoration: BoxDecoration(
+                        color: Color(0xFF00C2DD),
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                  )),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_forward),
+                color: Color(0xFF00C2DD),
+                iconSize: 20,
+              )
             ]),
           )
         ]),
