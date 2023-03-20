@@ -33,23 +33,25 @@ class _MessPageState extends State<MessPage> {
             Row(
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Container(
-                    height: 70,
-                    width: 420,
-                    child: const Card(
-                        color: Color(0xFF404040),
-                        child: Center(
-                          child: Text(
-                            "Divers",
-                            maxLines: 1,
-                            style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Container(
+                      height: 70,
+                      width: 420,
+                      child: const Card(
+                          color: Color(0xFF404040),
+                          child: Center(
+                            child: Text(
+                              "Divers",
+                              maxLines: 1,
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ))),
+                          ))),
+                )
               ],
             ),
             Expanded(
