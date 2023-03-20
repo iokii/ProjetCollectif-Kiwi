@@ -7,7 +7,8 @@ AppBar header({bool showParameter = false}) {
     leading: Padding(
         padding: const EdgeInsets.all(10.0),
         child: const CircleAvatar(
-          backgroundImage: NetworkImage("https://i.imgur.com/BoN9kdC.png"),
+          backgroundImage: NetworkImage(
+              "https://www.snexplores.org/wp-content/uploads/2022/09/091622_FK_fishing-fox_feat-1030x580.jpg"),
           radius: 10,
         )),
     // if show parameter, show an icon

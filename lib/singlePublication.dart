@@ -48,9 +48,7 @@ Card SinglePublication(BuildContext context, Publication publication) {
                     padding: const EdgeInsets.only(left: 10),
                     child: IconButton(
                       alignment: Alignment.topRight,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/password_reset');
-                      },
+                      onPressed: () {},
                       icon:
                           const Icon(Icons.star, color: Colors.white, size: 40),
                     ),
@@ -59,9 +57,7 @@ Card SinglePublication(BuildContext context, Publication publication) {
                     padding: const EdgeInsets.only(right: 20),
                     child: IconButton(
                       alignment: Alignment.topRight,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/password_reset');
-                      },
+                      onPressed: () {},
                       icon: const Icon(Icons.add_box_sharp,
                           color: Colors.white, size: 40),
                     ),
