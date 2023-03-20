@@ -11,7 +11,9 @@ BottomAppBar footer(context) {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/homepage');
+          },
           icon: const Icon(Icons.home),
           iconSize: 50,
         ),
