@@ -60,9 +60,6 @@ class _PostListState extends State<PostList> {
                 },
               ),
             ]),
-            // Text(widget.post.desc,
-            //     textAlign: TextAlign.justify,
-            //     style: const TextStyle(color: Colors.white, fontSize: 10)),
           ],
         ));
   }

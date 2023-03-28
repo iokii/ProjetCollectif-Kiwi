@@ -1,90 +1,86 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:project/footer.dart';
 import 'package:project/header.dart';
+import 'package:project/post.dart';
 import 'package:project/singlePublication.dart';
-import 'package:project/Publication.dart';
 import 'global.dart';
 
-import '../Publication.dart';
+class SinglePublication extends StatefulWidget {
+  final Post post;
+  const SinglePublication(this.post);
 
-Card SinglePublication(BuildContext context, Publication publication) {
-  Card showPublication = Card(
-      color: const Color(0xFF323232),
-      shadowColor: Colors.transparent,
-      child: Column(children: [
-        SingleChildScrollView(
-          child: Column(
+  @override
+  _SinglePublicationState createState() => _SinglePublicationState(post);
+}
+
+class _SinglePublicationState extends State<SinglePublication> {
+  _SinglePublicationState(Post post);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        color: const Color(0xFF323232),
+        shadowColor: Colors.transparent,
+        child: SingleChildScrollView(
+            child: Column(children: [
+          Column(
             children: [
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 20),
-                    child: CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(publication.photoProfil)),
+              Row(children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 3, bottom: 3, left: 3),
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(widget.post.authorPfp),
+                    maxRadius: 20,
                   ),
-                  Padding(
-                      padding: const EdgeInsets.only(left: 50, top: 10),
-                      child: Text(
-                        publication.utilisateur,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
-                      )),
-                ],
-              ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Text(widget.post.author,
+                      style: const TextStyle(color: Colors.white)),
+                ),
+              ]),
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: Image(
-                  image: NetworkImage(publication.oeuvre),
+                  image: NetworkImage(widget.post.urlMedia),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: IconButton(
-                      alignment: Alignment.topRight,
-                      onPressed: () {},
-                      icon:
-                          const Icon(Icons.star, color: Colors.white, size: 40),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      alignment: Alignment.topRight,
-                      onPressed: () {},
-                      icon: const Icon(Icons.add_box_sharp,
-                          color: Colors.white, size: 40),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text(
-                  publication.titre,
-                  style: const TextStyle(color: Colors.white),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                IconButton(
+                  icon: const Icon(Icons.star),
+                  color: widget.post.isLiked ? Colors.yellow : Colors.white,
+                  onPressed: () {
+                    setState(() {
+                      widget.post.isLiked = !widget.post.isLiked;
+                    });
+                  },
                 ),
-              ),
+                Flexible(
+                  child: Text(widget.post.title,
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                      overflow: TextOverflow.ellipsis),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.collections),
+                  color: Colors.white,
+                  onPressed: () {
+                    setState(() {});
+                  },
+                ),
+              ]),
               Padding(
                   padding: const EdgeInsets.only(top: 10, right: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      publication.description,
-                      textAlign: TextAlign.left,
+                      widget.post.desc,
+                      textAlign: TextAlign.justify,
                       style: const TextStyle(color: Colors.white),
                     ),
                   )),
             ],
           ),
-        ),
-      ]));
-
-  return showPublication;
+        ])));
+  }
 }
