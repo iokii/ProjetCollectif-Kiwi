@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:project/Models/Discussion.dart';
 import 'package:project/discuss.dart';
 
-import '../footer.dart';
+import '../BottomIconBar.dart';
 import '../header.dart';
 import '../Models/TextDiscuss.dart';
 import 'package:project/global.dart';
@@ -149,7 +149,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
             ]),
           )
         ]),
-        bottomNavigationBar: footer(context));
+        bottomNavigationBar: BottomIconBar(context));
   }
 }
 

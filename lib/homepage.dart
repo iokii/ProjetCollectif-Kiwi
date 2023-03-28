@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/DetailsPublication.dart';
-import 'package:project/footer.dart';
+import 'package:project/BottomIconBar.dart';
 import 'package:project/header.dart';
 import 'package:project/Models/Post.dart';
 import 'package:project/PostList.dart';
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
-      bottomNavigationBar: footer(context),
+      bottomNavigationBar: BottomIconBar(context),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/footer.dart';
+import 'package:project/BottomIconBar.dart';
 import 'package:project/header.dart';
 import 'package:project/Models/Post.dart';
 import 'package:project/Components/SinglePublication.dart';
@@ -35,7 +35,7 @@ class _DetailsPublicationState extends State<DetailsPublication> {
           Expanded(child: SinglePublication(widget.post)),
         ],
       ),
-      bottomNavigationBar: footer(context),
+      bottomNavigationBar: BottomIconBar(context),
     );
   }
 }
