@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/footer.dart';
 import 'package:project/header.dart';
-import 'package:project/post.dart';
-import 'package:project/singlePublication.dart';
+import 'package:project/Models/Post.dart';
+import 'package:project/Components/SinglePublication.dart';
 import 'global.dart';
 
 class DetailsPublication extends StatefulWidget {
