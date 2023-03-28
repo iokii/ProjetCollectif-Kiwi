@@ -2,11 +2,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/discuss.dart';
+import 'package:project/Models/discuss.dart';
 import 'package:project/global.dart';
 
 import '../Models/Message.dart';
-import 'ExtractArgumentsScreen.dart';
+import 'ExtractArgumentsDiscuss.dart';
 
 GestureDetector SingleMessage(BuildContext context, Message message) {
   GestureDetector showMessage = GestureDetector(

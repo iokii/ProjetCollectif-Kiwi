@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/DetailsPublication.dart';
-import 'Components/ExtractArgumentsScreen.dart';
+import 'Components/ExtractArgumentsDiscuss.dart';
+import 'Components/ExtractArgumentsProfile.dart';
 import 'MessPage.dart';
 import 'homepage.dart';
-import 'discuss.dart';
 import 'reset_password.dart';
 import 'create_account.dart';
 import 'login.dart';
@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
       routes: {
         //'/home_page': (context) => HomePage(),
-        '/details_publication': (context) => DetailsPublication("2"),
+        '/details_publication': (context) => const DetailsPublication("2"),
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
         '/homepage': (context) => HomePage(),
-        '/message': (context) => MessPage(false),
-        ExtractArgumentsDiscuss.discuss: (context) => ExtractArgumentsDiscuss()
+        '/message': (context) => const MessPage(false),
+        ExtractArgumentsDiscuss.discuss: (context) => ExtractArgumentsDiscuss(),
+        ExtractArgumentsProfile.profile: (context) => ExtractArgumentsProfile()
       },
     );
   }

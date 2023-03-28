@@ -5,7 +5,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/Models/Discussion.dart';
-import 'package:project/discuss.dart';
 
 import '../footer.dart';
 import '../header.dart';
@@ -27,7 +26,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
   Widget build(BuildContext context) {
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
-    final args = ModalRoute.of(context)!.settings.arguments as Discuss;
+    final args = ModalRoute.of(context)!.settings.arguments as String;
 
     //Request DB avec args pour l'id discuss
     Discussion discuss = Discussion(
