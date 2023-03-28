@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/DetailsPublication.dart';
 import 'package:project/footer.dart';
 import 'package:project/header.dart';
-import 'package:project/post.dart';
-import 'package:project/post_list.dart';
+import 'package:project/Models/Post.dart';
+import 'package:project/PostList.dart';
 import 'global.dart';
 
 class HomePage extends StatefulWidget {

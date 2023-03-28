@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:project/footer.dart';
-import 'package:project/header.dart';
-import 'package:project/post.dart';
-import 'package:project/singlePublication.dart';
-import 'global.dart';
+import 'package:project/Models/Post.dart';
 
 class SinglePublication extends StatefulWidget {
   final Post post;

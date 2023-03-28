@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:project/DetailsPublication.dart';
 import 'Components/ExtractArgumentsScreen.dart';
 import 'MessPage.dart';
-import 'homepage.dart';
+import 'HomePage.dart';
 import 'discuss.dart';
-import 'reset_password.dart';
-import 'create_account.dart';
+import 'ResetPassword.dart';
+import 'CreateAccount.dart';
 import 'login.dart';
 import 'global.dart';
 
