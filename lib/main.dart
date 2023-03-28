@@ -16,9 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: LoginPage(),
+      debugShowCheckedModeBanner: false,
       routes: {
         //'/home_page': (context) => HomePage(),
-        '/details_publication': (context) => DetailsPublication("2"),
+        // '/details_publication': (context) => DetailsPublication(null),
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
         '/homepage': (context) => HomePage(),
