@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'package:project/Models/Gallery.dart';
+import 'package:project/Models/Save.dart';
 import 'package:project/post.dart';
 
 class Profile {
@@ -12,8 +14,8 @@ class Profile {
   final int like;
   final List<String> actu;
   final List<Post> publications;
-  final List<String> listGallery;
-  final List<String> listCollect;
+  final List<Gallery> listGallery;
+  final List<Save> listCollect;
   final List<String> listInfo;
 
   // ignore: use_key_in_widget_constructors
