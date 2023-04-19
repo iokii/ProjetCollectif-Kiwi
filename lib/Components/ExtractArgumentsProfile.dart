@@ -7,6 +7,7 @@ import 'package:project/Models/Gallery.dart';
 import 'package:project/Models/Profile.dart';
 import 'package:project/Models/Save.dart';
 
+import '../Models/Info.dart';
 import '../footer.dart';
 import '../header.dart';
 import 'package:project/global.dart';
@@ -102,7 +103,10 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
               ""),
         ])
       ],
-      List.empty(),
+      [
+        Info(1, "boop",
+            "https://www.cip-national.fr/wp-content/uploads/2020/06/EQ5jGdc4BcDpCoXWO9mhTw1lrvo.png")
+      ],
     );
 
     return Scaffold(
@@ -208,7 +212,7 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 3,
             child: DefaultTabController(
               length: 4,
               child: Scaffold(
@@ -245,10 +249,13 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i += 3)
                                       Padding(
                                           padding: EdgeInsets.only(
-                                              top: 10, right: 5),
+                                              top: 10, right: 0),
                                           child: Image.network(
                                             profile.publications[i].urlMedia,
-                                            width: 170,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.31,
                                           )),
                                 ]),
                               ),
@@ -260,11 +267,14 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i += 3)
                                       Padding(
                                           padding: EdgeInsets.only(
-                                              top: 10, right: 5),
+                                              top: 10, right: 0),
                                           child: Row(children: [
                                             Image.network(
                                               profile.publications[i].urlMedia,
-                                              width: 170,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.31,
                                             ),
                                           ])),
                                 ]),
@@ -277,10 +287,13 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i += 3)
                                       Padding(
                                         padding:
-                                            EdgeInsets.only(top: 10, right: 5),
+                                            EdgeInsets.only(top: 10, right: 0),
                                         child: Image.network(
                                           profile.publications[i].urlMedia,
-                                          width: 170,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.31,
                                         ),
                                       ),
                                 ]),
@@ -294,7 +307,6 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                       color: darkGray,
                       child: SingleChildScrollView(
                         child: Table(
-                          border: TableBorder.all(),
                           columnWidths: const {
                             0: FractionColumnWidth(.5),
                             1: FractionColumnWidth(.5),
@@ -364,7 +376,6 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                       color: darkGray,
                       child: SingleChildScrollView(
                         child: Table(
-                          border: TableBorder.all(),
                           columnWidths: const {
                             0: FractionColumnWidth(.5),
                             1: FractionColumnWidth(.5),
@@ -432,7 +443,95 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                     ),
                     Container(
                       color: darkGray,
-                      child: Text("boop"),
+                      child: SingleChildScrollView(
+                        child: Table(
+                          columnWidths: const {
+                            0: FractionColumnWidth(.25),
+                            1: FractionColumnWidth(.25),
+                            2: FractionColumnWidth(.25),
+                            3: FractionColumnWidth(.25),
+                          },
+                          children: [
+                            for (int i = 0; i < profile.listInfo.length; i += 4)
+                              TableRow(children: [
+                                TableCell(
+                                    child: Column(children: [
+                                  ClipRRect(
+                                    child: Padding(
+                                        padding: EdgeInsets.only(
+                                            top: 15, left: 15, right: 15),
+                                        child: Image.network(
+                                          profile.listInfo[i].media,
+                                          height: 150,
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
+                                  Text(
+                                    profile.listInfo[i].name,
+                                    style: TextStyle(color: Colors.white),
+                                  )
+                                ])),
+                                TableCell(
+                                    child: Column(children: [
+                                  if (i + 2 < profile.listInfo.length)
+                                    ClipRRect(
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 15, left: 15, right: 15),
+                                          child: Image.network(
+                                            profile.listInfo[i + 1].media,
+                                            height: 150,
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  if (i + 2 < profile.listInfo.length)
+                                    Text(
+                                      profile.listInfo[i + 1].name,
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                ])),
+                                TableCell(
+                                    child: Column(children: [
+                                  if (i + 3 < profile.listInfo.length)
+                                    ClipRRect(
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 15, left: 15, right: 15),
+                                          child: Image.network(
+                                            profile.listInfo[i + 2].media,
+                                            height: 150,
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  if (i + 3 < profile.listInfo.length)
+                                    Text(
+                                      profile.listInfo[i + 2].name,
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                ])),
+                                TableCell(
+                                    child: Column(children: [
+                                  if (i + 4 < profile.listInfo.length)
+                                    ClipRRect(
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 15, left: 15, right: 15),
+                                          child: Image.network(
+                                            profile.listInfo[i + 3].media,
+                                            height: 150,
+                                            fit: BoxFit.cover,
+                                          )),
+                                    ),
+                                  if (i + 4 < profile.listInfo.length)
+                                    Text(
+                                      profile.listInfo[i + 3].name,
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                ])),
+                              ])
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),

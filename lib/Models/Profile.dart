@@ -2,6 +2,7 @@
 
 import 'package:project/Models/Gallery.dart';
 import 'package:project/Models/Save.dart';
+import 'package:project/Models/Info.dart';
 import 'package:project/post.dart';
 
 class Profile {
@@ -16,7 +17,7 @@ class Profile {
   final List<Post> publications;
   final List<Gallery> listGallery;
   final List<Save> listCollect;
-  final List<String> listInfo;
+  final List<Info> listInfo;
 
   // ignore: use_key_in_widget_constructors
   Profile(
