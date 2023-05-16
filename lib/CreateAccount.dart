@@ -4,11 +4,6 @@ import 'package:flutter/material.dart';
 import 'global.dart';
 import 'package:http/http.dart' as http;
 
-class CreateAccountPage extends StatefulWidget {
-  @override
-  _CreateAccountPageState createState() => _CreateAccountPageState();
-}
-
 Future<Map<String, dynamic>> createAccount(
     username, email, password, confirmPassword) async {
   final response =
@@ -26,6 +21,11 @@ Future<Map<String, dynamic>> createAccount(
   } else {
     return {'success': false, 'message': responseBody['error']};
   }
+}
+
+class CreateAccountPage extends StatefulWidget {
+  @override
+  _CreateAccountPageState createState() => _CreateAccountPageState();
 }
 
 class _CreateAccountPageState extends State<CreateAccountPage> {
@@ -118,6 +118,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         content: Text(result['message']),
                         backgroundColor: Colors.green),
                   );
+                  Navigator.pushNamed(context, '/');
                 } else {
                   // Show an error message
                   ScaffoldMessenger.of(context).showSnackBar(

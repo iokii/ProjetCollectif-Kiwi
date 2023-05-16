@@ -1,5 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'global.dart';
+import 'package:http/http.dart' as http;
+
+Future<Map<String, dynamic>> loginIntoAccount(username, password) async {
+  final response = await http
+      .get(Uri.parse('http://localhost:3000/login/$username/$password'));
+
+  Map<String, dynamic> responseBody = jsonDecode(response.body);
+  print(responseBody);
+  if (response.statusCode == 200) {
+    return {'success': true, 'message': responseBody['message']};
+  } else {
+    return {'success': false, 'message': responseBody['message']};
+  }
+}
 
 class LoginPage extends StatefulWidget {
   @override
@@ -60,9 +76,31 @@ class _LoginPageState extends State<LoginPage> {
                       ))),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/homepage');
-                  // Validate the login form here.
+                onPressed: () async {
+                  if (usernameController.text.isEmpty ||
+                      passwordController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Username and password cannot be empty'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  } else {
+                    var result = await loginIntoAccount(
+                        usernameController.text, passwordController.text);
+
+                    if (result['success']) {
+                      Navigator.pushNamed(context, '/homepage');
+                    } else {
+                      // Show an error message
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(result['message']),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(lightGray),
