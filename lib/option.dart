@@ -3,7 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:project/footer.dart';
+import 'package:project/BottomIconBar.dart';
 import 'package:project/header.dart';
 import 'global.dart';
 
@@ -90,7 +90,7 @@ class _OptionState extends State<Option> {
                   )
                 ]))),
       ]),
-      bottomNavigationBar: footer(context),
+      bottomNavigationBar: BottomIconBar(context),
     );
   }
 }

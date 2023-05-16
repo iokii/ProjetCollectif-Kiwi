@@ -7,9 +7,10 @@ import 'package:project/option.dart';
 import 'Components/ExtractArgumentsDiscuss.dart';
 import 'Components/ExtractArgumentsProfile.dart';
 import 'MessPage.dart';
-import 'homepage.dart';
-import 'reset_password.dart';
-import 'create_account.dart';
+import 'HomePage.dart';
+import 'discuss.dart';
+import 'ResetPassword.dart';
+import 'CreateAccount.dart';
 import 'login.dart';
 
 void main() => runApp(MyApp());
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: LoginPage(),
+      debugShowCheckedModeBanner: false,
       routes: {
         //'/home_page': (context) => HomePage(),
-        '/details_publication': (context) => const DetailsPublication("2"),
+        // '/details_publication': (context) => DetailsPublication(null),
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
         '/homepage': (context) => HomePage(),

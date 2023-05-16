@@ -1,5 +1,3 @@
-import 'package:project/post.dart';
-
 class Info {
   final int id;
   final String name;

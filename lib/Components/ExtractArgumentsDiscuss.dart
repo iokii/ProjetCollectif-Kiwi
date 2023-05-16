@@ -7,7 +7,7 @@ import 'package:project/Models/Discussion.dart';
 import 'package:project/Models/Message.dart';
 import 'package:project/Models/discuss.dart';
 
-import '../footer.dart';
+import '../BottomIconBar.dart';
 import '../header.dart';
 import '../Models/TextDiscuss.dart';
 
@@ -149,7 +149,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
             ]),
           )
         ]),
-        bottomNavigationBar: footer(context));
+        bottomNavigationBar: BottomIconBar(context));
   }
 }
 

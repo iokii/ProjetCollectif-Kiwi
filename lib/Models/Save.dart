@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:project/post.dart';
+import 'package:project/Models/Post.dart';
 
 class Save {
   final int id;

@@ -9,11 +9,11 @@ import 'package:project/Models/Gallery.dart';
 import 'package:project/Models/Profile.dart';
 
 import '../Models/Info.dart';
-import '../footer.dart';
+import '../BottomIconBar.dart';
 import '../header.dart';
 import 'package:project/global.dart';
 
-import '../post.dart';
+import 'package:project/Models/Post.dart';
 
 class ExtractArgumentsProfile extends StatefulWidget {
   const ExtractArgumentsProfile({super.key});
@@ -601,7 +601,7 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
             ),
           )
         ]),
-        bottomNavigationBar: footer(context));
+        bottomNavigationBar: BottomIconBar(context));
   }
 }
 

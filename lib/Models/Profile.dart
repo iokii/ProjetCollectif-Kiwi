@@ -3,7 +3,7 @@
 import 'package:project/Models/Gallery.dart';
 import 'package:project/Models/Save.dart';
 import 'package:project/Models/Info.dart';
-import 'package:project/post.dart';
+import 'package:project/Models/Post.dart';
 
 class Profile {
   final String pdp;

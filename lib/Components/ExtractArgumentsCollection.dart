@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Models/ArgumentScreenCollection.dart';
 
-import '../footer.dart';
+import '../BottomIconBar.dart';
 import '../global.dart';
 import '../header.dart';
 
@@ -119,7 +119,7 @@ class _ProfilePageState extends State<ExtractArgumentsCollection> {
             ),
           )
         ]),
-        bottomNavigationBar: footer(context));
+        bottomNavigationBar: BottomIconBar(context));
   }
 }
 

@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/global.dart';
-import 'package:project/post.dart';
+import 'package:project/Models/Post.dart';
 
 class PostList extends StatefulWidget {
   final Post post;
@@ -60,9 +59,6 @@ class _PostListState extends State<PostList> {
                 },
               ),
             ]),
-            // Text(widget.post.desc,
-            //     textAlign: TextAlign.justify,
-            //     style: const TextStyle(color: Colors.white, fontSize: 10)),
           ],
         ));
   }
