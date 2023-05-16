@@ -26,7 +26,7 @@ class _MessPageState extends State<MessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: header(),
+        appBar: header(context: context),
         backgroundColor: darkGray,
         body: Column(
           children: [

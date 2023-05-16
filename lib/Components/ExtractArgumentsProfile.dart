@@ -3,9 +3,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:project/Components/ExtractArgumentsCollection.dart';
+import 'package:project/Models/ArgumentScreenCollection.dart';
 import 'package:project/Models/Gallery.dart';
 import 'package:project/Models/Profile.dart';
-import 'package:project/Models/Save.dart';
 
 import '../Models/Info.dart';
 import '../footer.dart';
@@ -15,7 +16,7 @@ import 'package:project/global.dart';
 import '../post.dart';
 
 class ExtractArgumentsProfile extends StatefulWidget {
-  ExtractArgumentsProfile({super.key});
+  const ExtractArgumentsProfile({super.key});
   static const profile = '/profile';
 
   @override
@@ -27,6 +28,7 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
   Widget build(BuildContext context) {
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
+    // ignore: unused_local_variable
     final args = ModalRoute.of(context)!.settings.arguments as int;
 
     //Request DB avec args pour l'id discuss
@@ -93,7 +95,7 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
         ])
       ],
       [
-        Save(1, "Tableaux", [
+        Gallery(1, "Tableaux", [
           Post(
               "La Joconde",
               "Petit dessin pepouze",
@@ -110,7 +112,7 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
     );
 
     return Scaffold(
-        appBar: header(),
+        appBar: header(showParameter: true, context: context),
         backgroundColor: const Color(0xFF323232),
         body: Column(mainAxisSize: MainAxisSize.max, children: [
           Row(children: [
@@ -320,24 +322,39 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i < profile.listGallery.length;
                                         i += 2)
                                       Padding(
-                                        padding: EdgeInsets.all(10),
-                                        child: ClipRRect(
-                                            child: Column(
-                                          children: [
-                                            Image.network(
-                                              profile.listGallery[i]
-                                                  .listPublication[0].urlMedia,
-                                              width: 200,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                            Text(profile.listGallery[i].name,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 17))
-                                          ],
-                                        )),
-                                      )
+                                          padding: EdgeInsets.all(10),
+                                          child: InkWell(
+                                            onTap: () => {
+                                              Navigator.pushNamed(
+                                                  context,
+                                                  ExtractArgumentsCollection
+                                                      .collection,
+                                                  arguments:
+                                                      ArgumentScreenCollection(
+                                                          profile
+                                                              .listGallery[i],
+                                                          "gallery"))
+                                            },
+                                            child: ClipRRect(
+                                                child: Column(
+                                              children: [
+                                                Image.network(
+                                                  profile
+                                                      .listGallery[i]
+                                                      .listPublication[0]
+                                                      .urlMedia,
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                                Text(
+                                                    profile.listGallery[i].name,
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 17))
+                                              ],
+                                            )),
+                                          ))
                                 ]),
                               ),
                               TableCell(
@@ -347,24 +364,39 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i < profile.listGallery.length;
                                         i += 2)
                                       Padding(
-                                        padding: EdgeInsets.all(10),
-                                        child: ClipRRect(
-                                            child: Column(
-                                          children: [
-                                            Image.network(
-                                              profile.listGallery[i]
-                                                  .listPublication[0].urlMedia,
-                                              width: 200,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                            Text(profile.listGallery[i].name,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 17))
-                                          ],
-                                        )),
-                                      )
+                                          padding: EdgeInsets.all(10),
+                                          child: InkWell(
+                                            onTap: () => {
+                                              Navigator.pushNamed(
+                                                context,
+                                                ExtractArgumentsCollection
+                                                    .collection,
+                                                arguments:
+                                                    ArgumentScreenCollection(
+                                                        profile.listGallery[i],
+                                                        "gallery"),
+                                              )
+                                            },
+                                            child: ClipRRect(
+                                                child: Column(
+                                              children: [
+                                                Image.network(
+                                                  profile
+                                                      .listGallery[i]
+                                                      .listPublication[0]
+                                                      .urlMedia,
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                                Text(
+                                                    profile.listGallery[i].name,
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 17))
+                                              ],
+                                            )),
+                                          ))
                                 ]),
                               ),
                             ])
@@ -390,22 +422,37 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i += 2)
                                       Padding(
                                         padding: EdgeInsets.all(10),
-                                        child: ClipRRect(
-                                            child: Column(
-                                          children: [
-                                            Image.network(
-                                              profile.listCollect[i]
-                                                  .listPublication[0].urlMedia,
-                                              width: 200,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                            Text(profile.listCollect[i].name,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 17))
-                                          ],
-                                        )),
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                              context,
+                                              ExtractArgumentsCollection
+                                                  .collection,
+                                              arguments:
+                                                  ArgumentScreenCollection(
+                                                      profile.listCollect[i],
+                                                      "Collection"),
+                                            );
+                                          },
+                                          child: ClipRRect(
+                                              child: Column(
+                                            children: [
+                                              Image.network(
+                                                profile
+                                                    .listCollect[i]
+                                                    .listPublication[0]
+                                                    .urlMedia,
+                                                width: 200,
+                                                height: 200,
+                                                fit: BoxFit.cover,
+                                              ),
+                                              Text(profile.listCollect[i].name,
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 17))
+                                            ],
+                                          )),
+                                        ),
                                       )
                                 ]),
                               ),
@@ -417,22 +464,37 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
                                         i += 2)
                                       Padding(
                                         padding: EdgeInsets.all(10),
-                                        child: ClipRRect(
-                                            child: Column(
-                                          children: [
-                                            Image.network(
-                                              profile.listCollect[i]
-                                                  .listPublication[0].urlMedia,
-                                              width: 200,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                            Text(profile.listCollect[i].name,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 17))
-                                          ],
-                                        )),
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                              context,
+                                              ExtractArgumentsCollection
+                                                  .collection,
+                                              arguments:
+                                                  ArgumentScreenCollection(
+                                                      profile.listCollect[i],
+                                                      "Collection"),
+                                            );
+                                          },
+                                          child: ClipRRect(
+                                              child: Column(
+                                            children: [
+                                              Image.network(
+                                                profile
+                                                    .listCollect[i]
+                                                    .listPublication[0]
+                                                    .urlMedia,
+                                                width: 200,
+                                                height: 200,
+                                                fit: BoxFit.cover,
+                                              ),
+                                              Text(profile.listCollect[i].name,
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 17))
+                                            ],
+                                          )),
+                                        ),
                                       )
                                 ]),
                               ),

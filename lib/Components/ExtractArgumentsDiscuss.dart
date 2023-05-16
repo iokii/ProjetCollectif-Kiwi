@@ -2,17 +2,17 @@
 // the ModalRoute.
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/Models/Discussion.dart';
+import 'package:project/Models/Message.dart';
+import 'package:project/Models/discuss.dart';
 
 import '../footer.dart';
 import '../header.dart';
 import '../Models/TextDiscuss.dart';
-import 'package:project/global.dart';
 
 class ExtractArgumentsDiscuss extends StatefulWidget {
-  ExtractArgumentsDiscuss({super.key});
+  const ExtractArgumentsDiscuss({super.key});
   static const discuss = '/discuss';
 
   @override
@@ -26,7 +26,8 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
   Widget build(BuildContext context) {
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
-    final args = ModalRoute.of(context)!.settings.arguments as String;
+    // final args = ModalRoute.of(context)!.settings.arguments as String;
+    final args = ModalRoute.of(context)!.settings.arguments as Discuss;
 
     //Request DB avec args pour l'id discuss
     Discussion discuss = Discussion(
@@ -103,7 +104,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
     }
 
     return Scaffold(
-        appBar: header(),
+        appBar: header(context: context),
         backgroundColor: const Color(0xFF323232),
         body: Column(mainAxisSize: MainAxisSize.max, children: [
           Align(

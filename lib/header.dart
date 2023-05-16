@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project/global.dart';
 
-AppBar header({bool showParameter = false}) {
+AppBar header({bool showParameter = false, required BuildContext context}) {
   return AppBar(
     backgroundColor: semiLightGray,
-    leading: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: const CircleAvatar(
+    leading: const Padding(
+        padding: EdgeInsets.all(10.0),
+        child: CircleAvatar(
           backgroundImage: NetworkImage("https://i.imgur.com/BoN9kdC.png"),
           radius: 10,
         )),
@@ -15,7 +15,9 @@ AppBar header({bool showParameter = false}) {
         ? <Widget>[
             IconButton(
               icon: const Icon(Icons.settings),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/option");
+              },
             ),
           ]
         : null,

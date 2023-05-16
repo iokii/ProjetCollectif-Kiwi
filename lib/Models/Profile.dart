@@ -16,7 +16,7 @@ class Profile {
   final List<String> actu;
   final List<Post> publications;
   final List<Gallery> listGallery;
-  final List<Save> listCollect;
+  final List<Gallery> listCollect;
   final List<Info> listInfo;
 
   // ignore: use_key_in_widget_constructors
