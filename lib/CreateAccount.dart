@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'global.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +9,8 @@ class CreateAccountPage extends StatefulWidget {
   _CreateAccountPageState createState() => _CreateAccountPageState();
 }
 
-Future<bool> createAccount(username, email, password, confirmPassword) async {
+Future<Map<String, dynamic>> createAccount(
+    username, email, password, confirmPassword) async {
   final response =
       await http.post(Uri.parse('http://localhost:3000/createAccount'), body: {
     'username': username,
@@ -15,15 +18,14 @@ Future<bool> createAccount(username, email, password, confirmPassword) async {
     'password': password,
     'confirmPassword': confirmPassword
   });
-  print(response);
-  // if (response.success) {
-  //   // Account creation was successful.
-  //   return true;
-  // } else {
-  //   // Account creation failed.
-  //   print('Error: ${response.body}');
-  //   return false;
-  // }
+
+  Map<String, dynamic> responseBody = jsonDecode(response.body);
+
+  if (response.statusCode == 200) {
+    return {'success': true, 'message': responseBody['message']};
+  } else {
+    return {'success': false, 'message': responseBody['error']};
+  }
 }
 
 class _CreateAccountPageState extends State<CreateAccountPage> {
@@ -103,16 +105,26 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () async {
-                bool success = await createAccount(
+                var result = await createAccount(
                     usernameController.text,
                     emailController.text,
                     passwordController.text,
                     secondPasswordController.text);
 
-                if (success) {
+                if (result['success']) {
                   // Navigate to a different page or show a success message
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content: Text(result['message']),
+                        backgroundColor: Colors.green),
+                  );
                 } else {
                   // Show an error message
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content: Text(result['message']),
+                        backgroundColor: Colors.red),
+                  );
                 }
               },
               style: ButtonStyle(
