@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:project/Components/ExtractArgumentsProfile.dart';
 import 'global.dart';
 
 BottomAppBar BottomIconBar(context) {
@@ -39,7 +39,13 @@ BottomAppBar BottomIconBar(context) {
           iconSize: iconSize,
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              ExtractArgumentsProfile.profile,
+              arguments: 1,
+            );
+          },
           icon: const Icon(
             Icons.person,
             color: Colors.white,
