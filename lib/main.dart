@@ -1,13 +1,17 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:project/Components/ExtractArgumentsCollection.dart';
 import 'package:project/DetailsPublication.dart';
-import 'Components/ExtractArgumentsScreen.dart';
+import 'package:project/option.dart';
+import 'Components/ExtractArgumentsDiscuss.dart';
+import 'Components/ExtractArgumentsProfile.dart';
 import 'MessPage.dart';
 import 'HomePage.dart';
 import 'discuss.dart';
 import 'ResetPassword.dart';
 import 'CreateAccount.dart';
 import 'login.dart';
-import 'global.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,8 +27,13 @@ class MyApp extends StatelessWidget {
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
         '/homepage': (context) => HomePage(),
-        '/message': (context) => MessPage(false),
-        ExtractArgumentsDiscuss.discuss: (context) => ExtractArgumentsDiscuss()
+        '/message': (context) => const MessPage(false),
+        '/option': (context) => const Option(false),
+
+        ExtractArgumentsDiscuss.discuss: (context) => ExtractArgumentsDiscuss(),
+        ExtractArgumentsProfile.profile: (context) => ExtractArgumentsProfile(),
+        ExtractArgumentsCollection.collection: (context) =>
+            ExtractArgumentsCollection()
       },
     );
   }

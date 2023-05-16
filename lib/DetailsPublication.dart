@@ -20,7 +20,7 @@ class _DetailsPublicationState extends State<DetailsPublication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(),
+      appBar: header(context: context),
       backgroundColor: darkGray,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
