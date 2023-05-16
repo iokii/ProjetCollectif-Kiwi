@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
 import 'global.dart';
+import 'package:http/http.dart' as http;
 
 class CreateAccountPage extends StatefulWidget {
   @override
   _CreateAccountPageState createState() => _CreateAccountPageState();
+}
+
+Future<bool> createAccount(username, email, password, confirmPassword) async {
+  final response =
+      await http.post(Uri.parse('http://localhost:3000/createAccount'), body: {
+    'username': username,
+    'email': email,
+    'password': password,
+    'confirmPassword': confirmPassword
+  });
+  print(response);
+  // if (response.success) {
+  //   // Account creation was successful.
+  //   return true;
+  // } else {
+  //   // Account creation failed.
+  //   print('Error: ${response.body}');
+  //   return false;
+  // }
 }
 
 class _CreateAccountPageState extends State<CreateAccountPage> {
@@ -82,13 +102,24 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-                onPressed: () {
-                  // Create acc here.
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(lightGray),
-                ),
-                child: const Text("Create account")),
+              onPressed: () async {
+                bool success = await createAccount(
+                    usernameController.text,
+                    emailController.text,
+                    passwordController.text,
+                    secondPasswordController.text);
+
+                if (success) {
+                  // Navigate to a different page or show a success message
+                } else {
+                  // Show an error message
+                }
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(lightGray),
+              ),
+              child: const Text("Create account"),
+            ),
           ],
         ),
       ),

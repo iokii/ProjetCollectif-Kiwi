@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/global.dart';
 import 'package:project/Models/Post.dart';
+import 'package:http/http.dart' as http;
 
 class PostList extends StatefulWidget {
   final Post post;
@@ -8,6 +9,16 @@ class PostList extends StatefulWidget {
 
   @override
   _PostListState createState() => _PostListState(post);
+}
+
+Future<void> testBackendConnection() async {
+  final response = await http.get(Uri.parse('http://localhost:3000/test'));
+
+  if (response.statusCode == 200) {
+    print('Connected to the backend: ${response.body}');
+  } else {
+    print('Failed to connect to the backend.');
+  }
 }
 
 class _PostListState extends State<PostList> {
@@ -41,6 +52,7 @@ class _PostListState extends State<PostList> {
                 icon: const Icon(Icons.star),
                 color: widget.post.isLiked ? Colors.yellow : Colors.white,
                 onPressed: () {
+                  testBackendConnection();
                   setState(() {
                     widget.post.isLiked = !widget.post.isLiked;
                   });
