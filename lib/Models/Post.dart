@@ -7,5 +7,22 @@ class Post {
   String urlMedia = "";
   String author = "";
   String authorPfp = "";
-  String date = "";
+  DateTime date;
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    int seconds = json['date']['_seconds'];
+    int nanoseconds = json['date']['_nanoseconds'];
+
+    // Convert seconds and nanoseconds into a DateTime object
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(
+        seconds * 1000 + nanoseconds ~/ 1000000);
+    return Post(
+      json['title'],
+      json['desc'],
+      json['urlMedia'],
+      "",
+      "",
+      date,
+    );
+  }
 }
