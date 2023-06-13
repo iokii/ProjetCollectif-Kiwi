@@ -20,8 +20,8 @@ class Post {
       json['title'],
       json['desc'],
       json['urlMedia'],
-      "",
-      "",
+      json['author'],
+      json['authorPfp'],
       date,
     );
   }

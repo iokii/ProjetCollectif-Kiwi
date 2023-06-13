@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:project/global.dart';
+import 'package:provider/provider.dart';
+
+import 'Models/UserStored.dart';
+import 'Provider/UserProvider.dart';
 
 AppBar header({bool showParameter = false, required BuildContext context}) {
+  UserStored user = Provider.of<UserProvider>(context, listen: false).user;
   return AppBar(
     backgroundColor: semiLightGray,
     leading: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: const CircleAvatar(
-          backgroundImage: NetworkImage(
-              "https://www.snexplores.org/wp-content/uploads/2022/09/091622_FK_fishing-fox_feat-1030x580.jpg"),
+        child: CircleAvatar(
+          backgroundImage: NetworkImage(user.pfp),
           radius: 10,
         )),
     // if show parameter, show an icon

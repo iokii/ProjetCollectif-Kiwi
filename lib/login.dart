@@ -1,16 +1,24 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'Models/User.dart';
+import 'Models/UserStored.dart';
+import 'Provider/UserProvider.dart';
 import 'global.dart';
 import 'package:http/http.dart' as http;
 
-Future<Map<String, dynamic>> loginIntoAccount(username, password) async {
+Future<Map<String, dynamic>> loginIntoAccount(
+    username, password, BuildContext context) async {
   final response = await http
       .get(Uri.parse('http://localhost:3000/login/$username/$password'));
 
   Map<String, dynamic> responseBody = jsonDecode(response.body);
   print(responseBody);
   if (response.statusCode == 200) {
+    User newUserData = User.fromJson(responseBody['user']);
+    UserStored userStored = UserStored.fromUser(newUserData);
+    Provider.of<UserProvider>(context, listen: false).setUser(userStored);
     return {'success': true, 'message': responseBody['message']};
   } else {
     return {'success': false, 'message': responseBody['message']};
@@ -86,8 +94,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     );
                   } else {
-                    var result = await loginIntoAccount(
-                        usernameController.text, passwordController.text);
+                    var result = await loginIntoAccount(usernameController.text,
+                        passwordController.text, context);
 
                     if (result['success']) {
                       Navigator.pushNamed(context, '/homepage');

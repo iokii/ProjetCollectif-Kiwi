@@ -6,6 +6,9 @@ import 'package:project/BottomIconBar.dart';
 import 'package:project/header.dart';
 import 'package:project/Models/Post.dart';
 import 'package:project/PostList.dart';
+import 'package:provider/provider.dart';
+import 'Models/UserStored.dart';
+import 'Provider/UserProvider.dart';
 import 'global.dart';
 import 'package:http/http.dart' as http;
 
@@ -37,11 +40,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    UserStored user = Provider.of<UserProvider>(context, listen: false).user;
     return Scaffold(
       appBar: header(context: context),
       backgroundColor: darkGray,
       body: FutureBuilder<List<dynamic>>(
-        future: getPosts("Luckywee"),
+        future: getPosts(user.userId),
         builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
           if (snapshot.hasData) {
             var listPosts = snapshot.data!;

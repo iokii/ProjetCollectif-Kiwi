@@ -2,18 +2,25 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/Components/ExtractArgumentsCollection.dart';
-import 'package:project/DetailsPublication.dart';
 import 'package:project/option.dart';
+import 'package:provider/provider.dart';
 import 'Components/ExtractArgumentsDiscuss.dart';
 import 'Components/ExtractArgumentsProfile.dart';
 import 'MessPage.dart';
 import 'HomePage.dart';
-import 'discuss.dart';
+import 'Provider/UserProvider.dart';
 import 'ResetPassword.dart';
 import 'CreateAccount.dart';
 import 'login.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
