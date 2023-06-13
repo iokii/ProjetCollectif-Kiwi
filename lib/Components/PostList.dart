@@ -1,12 +1,16 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:project/global.dart';
 import 'package:project/Models/Post.dart';
+
+import '../Models/global.dart';
 
 class PostList extends StatefulWidget {
   final Post post;
-  const PostList(this.post);
+  const PostList(this.post, {super.key});
 
   @override
+  // ignore: library_private_types_in_public_api, no_logic_in_create_state
   _PostListState createState() => _PostListState(post);
 }
 

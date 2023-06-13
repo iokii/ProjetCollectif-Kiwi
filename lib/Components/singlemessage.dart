@@ -1,12 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/Models/discuss.dart';
-import 'package:project/global.dart';
 
 import '../Models/Message.dart';
-import 'ExtractArgumentsDiscuss.dart';
+import '../Page/ExtractArgumentsDiscuss.dart';
 
 GestureDetector SingleMessage(BuildContext context, Message message) {
   GestureDetector showMessage = GestureDetector(
@@ -46,7 +44,8 @@ GestureDetector SingleMessage(BuildContext context, Message message) {
                         message.lastMessage,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 10, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 10, color: Colors.white),
                         textAlign: TextAlign.left,
                       ),
                     ],

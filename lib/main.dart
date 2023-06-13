@@ -1,17 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:project/Components/ExtractArgumentsCollection.dart';
-import 'package:project/DetailsPublication.dart';
-import 'package:project/option.dart';
-import 'Components/ExtractArgumentsDiscuss.dart';
-import 'Components/ExtractArgumentsProfile.dart';
-import 'MessPage.dart';
-import 'HomePage.dart';
-import 'discuss.dart';
-import 'ResetPassword.dart';
-import 'CreateAccount.dart';
-import 'login.dart';
+import 'package:project/Page/ExtractArgumentsCollection.dart';
+import 'package:project/Page/option.dart';
+import 'Page/ExtractArgumentsDiscuss.dart';
+import 'Page/ExtractArgumentsProfile.dart';
+import 'Page/MessPage.dart';
+import 'Page/ResetPassword.dart';
+import 'Page/CreateAccount.dart';
+import 'Page/homepage.dart';
+import 'Page/login.dart';
 
 void main() => runApp(MyApp());
 

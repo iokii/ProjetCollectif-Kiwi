@@ -4,11 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/Models/Discussion.dart';
-import 'package:project/Models/Message.dart';
 import 'package:project/Models/discuss.dart';
 
-import '../BottomIconBar.dart';
-import '../header.dart';
+import '../Components/Part/BottomIconBar.dart';
+import '../Components/Part/header.dart';
 import '../Models/TextDiscuss.dart';
 
 class ExtractArgumentsDiscuss extends StatefulWidget {
