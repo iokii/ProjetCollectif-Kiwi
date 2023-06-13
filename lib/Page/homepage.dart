@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:project/DetailsPublication.dart';
-import 'package:project/BottomIconBar.dart';
-import 'package:project/header.dart';
 import 'package:project/Models/Post.dart';
-import 'package:project/PostList.dart';
-import 'global.dart';
+
+import '../Components/DetailsPublication.dart';
+import '../Components/Part/BottomIconBar.dart';
+import '../Components/Part/header.dart';
+import '../Components/PostList.dart';
+import '../Models/global.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 

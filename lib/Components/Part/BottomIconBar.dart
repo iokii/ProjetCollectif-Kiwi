@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/Components/ExtractArgumentsProfile.dart';
-import 'global.dart';
+import 'package:project/Page/ExtractArgumentsProfile.dart';
+import '../../Models/global.dart';
 
 BottomAppBar BottomIconBar(context) {
   var iconSize = 35.0;

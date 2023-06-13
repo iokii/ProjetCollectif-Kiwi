@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project/Components/singlemessage.dart';
 import 'package:project/Models/Message.dart';
-import 'package:project/BottomIconBar.dart';
-import 'package:project/global.dart';
-import 'package:project/header.dart';
+
+import '../Components/Part/BottomIconBar.dart';
+import '../Components/Part/header.dart';
+import '../Models/global.dart';
 
 class MessPage extends StatefulWidget {
   final bool artiste;

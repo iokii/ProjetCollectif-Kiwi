@@ -8,4 +8,5 @@ class Post {
   String author = "";
   String authorPfp = "";
   String date = "";
+  String type = "";
 }
