@@ -44,10 +44,10 @@ class _SinglePublicationState extends State<SinglePublication> {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 IconButton(
                   icon: const Icon(Icons.star),
-                  color: widget.post.isLiked ? Colors.yellow : Colors.white,
+                  color: widget.post.liked ? Colors.yellow : Colors.white,
                   onPressed: () {
                     setState(() {
-                      widget.post.isLiked = !widget.post.isLiked;
+                      widget.post.liked = !widget.post.liked;
                     });
                   },
                 ),

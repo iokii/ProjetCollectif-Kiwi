@@ -19,9 +19,9 @@ class HomePage extends StatefulWidget {
 
 const loginText = "Log into $applicationName !";
 
-Future<List<Post>> getPosts(String username) async {
+Future<List<Post>> getPosts(String userId) async {
   final response =
-      await http.get(Uri.parse('http://localhost:3000/posts/$username'));
+      await http.get(Uri.parse('http://localhost:3000/posts/$userId'));
 
   if (response.statusCode == 200) {
     Map<String, dynamic> jsonResponse = json.decode(response.body);

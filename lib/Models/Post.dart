@@ -1,9 +1,11 @@
 class Post {
-  Post(this.title, this.desc, this.urlMedia, this.author, this.authorPfp,
-      this.date);
+  Post(this.title, this.desc, this.liked, this.urlMedia, this.author,
+      this.authorPfp, this.date,
+      {this.postId = ""});
+  String postId = "";
   String title = "";
   String desc = "";
-  bool isLiked = false;
+  bool liked = false;
   String urlMedia = "";
   String author = "";
   String authorPfp = "";
@@ -19,10 +21,12 @@ class Post {
     return Post(
       json['title'],
       json['desc'],
+      json['liked'],
       json['urlMedia'],
       json['author'],
       json['authorPfp'],
       date,
+      postId: json['postId'],
     );
   }
 }
