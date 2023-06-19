@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(context: context),
+      appBar: header(context: context, artist: true),
       backgroundColor: darkGray,
       body: SizedBox(
         child: ListView.builder(
