@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../Models/global.dart';
 
-AppBar header({bool showParameter = false, required BuildContext context}) {
+AppBar header(
+    {bool artist = false,
+    bool back = false,
+    bool showParameter = false,
+    required BuildContext context}) {
   return AppBar(
     backgroundColor: semiLightGray,
     leading: const Padding(
@@ -22,7 +26,23 @@ AppBar header({bool showParameter = false, required BuildContext context}) {
               },
             ),
           ]
-        : null,
+        : artist
+            ? <Widget>[
+                IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/addArt", arguments: false);
+                    },
+                    icon: const Icon(Icons.add))
+              ]
+            : back
+                ? <Widget>[
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.close))
+                  ]
+                : null,
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(4.0),
       child: Container(

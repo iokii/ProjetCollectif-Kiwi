@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:project/Models/ArgumentScreenCollection.dart';
+import 'package:project/Page/CreateArt.dart';
 import 'package:project/Page/ExtractArgumentsCollection.dart';
 import 'package:project/Page/option.dart';
 import 'Page/ExtractArgumentsDiscuss.dart';
@@ -20,14 +22,12 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
       debugShowCheckedModeBanner: false,
       routes: {
-        //'/home_page': (context) => HomePage(),
-        // '/details_publication': (context) => DetailsPublication(null),
         '/password_reset': (context) => ResetPasswordPage(),
         '/create_account': (context) => CreateAccountPage(),
         '/homepage': (context) => HomePage(),
         '/message': (context) => const MessPage(false),
         '/option': (context) => const Option(false),
-
+        CreateArt.route: (context) => CreateArt(),
         ExtractArgumentsDiscuss.discuss: (context) => ExtractArgumentsDiscuss(),
         ExtractArgumentsProfile.profile: (context) => ExtractArgumentsProfile(),
         ExtractArgumentsCollection.collection: (context) =>
