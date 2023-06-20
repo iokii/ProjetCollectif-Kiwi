@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:project/DetailsPublication.dart';
-import 'package:project/BottomIconBar.dart';
-import 'package:project/header.dart';
 import 'package:project/Models/Post.dart';
-import 'package:project/PostList.dart';
 import 'package:provider/provider.dart';
-import 'Models/UserStored.dart';
-import 'Provider/UserProvider.dart';
-import 'Services/PostService.dart';
-import 'global.dart';
+
+import '../Components/DetailsPublication.dart';
+import '../Components/Part/BottomIconBar.dart';
+import '../Components/Part/header.dart';
+import '../Components/PostList.dart';
+import '../Models/UserStored.dart';
+import '../Models/global.dart';
+import '../Provider/UserProvider.dart';
+import '../Services/PostService.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -27,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     UserStored user = Provider.of<UserProvider>(context, listen: false).user;
     return Scaffold(
-      appBar: header(context: context),
+      appBar: header(context: context, artist: true),
       backgroundColor: darkGray,
       body: FutureBuilder<List<dynamic>>(
         future: postService.getPosts(user.userId),

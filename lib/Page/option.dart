@@ -3,13 +3,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:project/BottomIconBar.dart';
-import 'package:project/header.dart';
-import 'global.dart';
+import '../Components/Part/BottomIconBar.dart';
+import '../Components/Part/header.dart';
+import '../Models/global.dart';
 
 class Option extends StatefulWidget {
   final bool typeArtiste;
-  const Option(this.typeArtiste);
+  const Option(this.typeArtiste, {super.key});
 
   @override
   _OptionState createState() => _OptionState(typeArtiste);

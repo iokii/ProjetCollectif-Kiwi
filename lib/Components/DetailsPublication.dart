@@ -1,13 +1,15 @@
+// ignore_for_file: file_names, library_private_types_in_public_api, no_logic_in_create_state
+
 import 'package:flutter/material.dart';
-import 'package:project/BottomIconBar.dart';
-import 'package:project/header.dart';
 import 'package:project/Models/Post.dart';
 import 'package:project/Components/SinglePublication.dart';
-import 'global.dart';
+import '../Models/global.dart';
+import 'Part/BottomIconBar.dart';
+import 'Part/header.dart';
 
 class DetailsPublication extends StatefulWidget {
   final Post post;
-  const DetailsPublication(this.post);
+  const DetailsPublication(this.post, {super.key});
 
   @override
   _DetailsPublicationState createState() => _DetailsPublicationState(post);
@@ -28,7 +30,7 @@ class _DetailsPublicationState extends State<DetailsPublication> {
           IconButton(
               alignment: Alignment.centerLeft,
               onPressed: () {
-                Navigator.pushNamed(context, '/homepage');
+                Navigator.pop(context);
               },
               icon:
                   const Icon(Icons.arrow_back, color: Colors.white, size: 30)),

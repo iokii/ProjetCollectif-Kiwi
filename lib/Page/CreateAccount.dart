@@ -1,8 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api, file_names
+
 import 'package:flutter/material.dart';
-import 'Services/UserService.dart';
-import 'global.dart';
+
+import '../Models/global.dart';
+import '../Services/UserService.dart';
 
 class CreateAccountPage extends StatefulWidget {
+  const CreateAccountPage({super.key});
+
   @override
   _CreateAccountPageState createState() => _CreateAccountPageState();
 }

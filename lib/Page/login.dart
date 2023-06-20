@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'Services/UserService.dart';
-import 'global.dart';
+
+import '../Models/global.dart';
+import '../Services/UserService.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 

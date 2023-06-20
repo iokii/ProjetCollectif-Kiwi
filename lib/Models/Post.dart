@@ -10,6 +10,7 @@ class Post {
   String author = "";
   String authorPfp = "";
   DateTime date;
+  String type = "";
 
   factory Post.fromJson(Map<String, dynamic> json) {
     int seconds = json['date']['_seconds'];

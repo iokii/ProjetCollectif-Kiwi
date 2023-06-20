@@ -5,9 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:project/Models/ArgumentScreenCollection.dart';
 
-import '../BottomIconBar.dart';
-import '../global.dart';
-import '../header.dart';
+import '../Components/DetailsPublication.dart';
+import '../Components/Part/BottomIconBar.dart';
+import '../Components/Part/header.dart';
+import '../Models/global.dart';
 
 class ExtractArgumentsCollection extends StatefulWidget {
   const ExtractArgumentsCollection({super.key});
@@ -71,12 +72,23 @@ class _ProfilePageState extends State<ExtractArgumentsCollection> {
                                 i < args.gallery.listPublication.length;
                                 i += 3)
                               Padding(
-                                  padding: EdgeInsets.only(top: 10, right: 0),
-                                  child: Image.network(
-                                    args.gallery.listPublication[i].urlMedia,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.31,
-                                  )),
+                                padding: EdgeInsets.only(top: 10, right: 0),
+                                child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailsPublication(args
+                                                      .gallery
+                                                      .listPublication[i])));
+                                    },
+                                    child: Image.network(
+                                      args.gallery.listPublication[i].urlMedia,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.31,
+                                    )),
+                              ),
                         ]),
                       ),
                       TableCell(
@@ -88,11 +100,25 @@ class _ProfilePageState extends State<ExtractArgumentsCollection> {
                               Padding(
                                   padding: EdgeInsets.only(top: 10, right: 0),
                                   child: Row(children: [
-                                    Image.network(
-                                      args.gallery.listPublication[i].urlMedia,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.31,
-                                    ),
+                                    InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DetailsPublication(args
+                                                              .gallery
+                                                              .listPublication[
+                                                          i])));
+                                        },
+                                        child: Image.network(
+                                          args.gallery.listPublication[i]
+                                              .urlMedia,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.31,
+                                        )),
                                   ])),
                         ]),
                       ),
@@ -104,11 +130,21 @@ class _ProfilePageState extends State<ExtractArgumentsCollection> {
                                 i += 3)
                               Padding(
                                 padding: EdgeInsets.only(top: 10, right: 0),
-                                child: Image.network(
-                                  args.gallery.listPublication[i].urlMedia,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.31,
-                                ),
+                                child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailsPublication(args
+                                                      .gallery
+                                                      .listPublication[i])));
+                                    },
+                                    child: Image.network(
+                                      args.gallery.listPublication[i].urlMedia,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.31,
+                                    )),
                               ),
                         ]),
                       ),

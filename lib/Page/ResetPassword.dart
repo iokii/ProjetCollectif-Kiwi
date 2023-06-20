@@ -1,8 +1,13 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'global.dart';
+
+import '../Models/global.dart';
 
 class ResetPasswordPage extends StatefulWidget {
+  const ResetPasswordPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
 }
 
