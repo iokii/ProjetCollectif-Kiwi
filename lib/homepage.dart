@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:project/DetailsPublication.dart';
 import 'package:project/BottomIconBar.dart';
@@ -9,8 +7,8 @@ import 'package:project/PostList.dart';
 import 'package:provider/provider.dart';
 import 'Models/UserStored.dart';
 import 'Provider/UserProvider.dart';
+import 'Services/PostService.dart';
 import 'global.dart';
-import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,24 +17,11 @@ class HomePage extends StatefulWidget {
 
 const loginText = "Log into $applicationName !";
 
-Future<List<Post>> getPosts(String userId) async {
-  final response =
-      await http.get(Uri.parse('http://localhost:3000/posts/$userId'));
-
-  if (response.statusCode == 200) {
-    Map<String, dynamic> jsonResponse = json.decode(response.body);
-    List<dynamic> data = jsonResponse['data'];
-    return data.map((item) => Post.fromJson(item)).toList();
-  } else {
-    throw Exception(
-        'Failed to load posts. Status code: ${response.statusCode}. Response body: ${response.body}');
-  }
-}
-
 class _HomePageState extends State<HomePage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   late Post _selectedPost;
+  final postService = PostService();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       appBar: header(context: context),
       backgroundColor: darkGray,
       body: FutureBuilder<List<dynamic>>(
-        future: getPosts(user.userId),
+        future: postService.getPosts(user.userId),
         builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
           if (snapshot.hasData) {
             var listPosts = snapshot.data!;
@@ -73,7 +58,6 @@ class _HomePageState extends State<HomePage> {
             return Text("${snapshot.error}");
           }
 
-          // By default, show a loading spinner.
           return CircularProgressIndicator();
         },
       ),

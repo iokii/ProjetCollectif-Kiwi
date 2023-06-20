@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project/Models/Post.dart';
+import 'package:provider/provider.dart';
+
+import '../Models/UserStored.dart';
+import '../Provider/UserProvider.dart';
+import '../Services/PostService.dart';
 
 class SinglePublication extends StatefulWidget {
   final Post post;
@@ -11,9 +16,11 @@ class SinglePublication extends StatefulWidget {
 
 class _SinglePublicationState extends State<SinglePublication> {
   _SinglePublicationState(Post post);
+  final postService = PostService();
 
   @override
   Widget build(BuildContext context) {
+    UserStored user = Provider.of<UserProvider>(context, listen: false).user;
     return Card(
         color: const Color(0xFF323232),
         shadowColor: Colors.transparent,
@@ -47,6 +54,8 @@ class _SinglePublicationState extends State<SinglePublication> {
                   color: widget.post.liked ? Colors.yellow : Colors.white,
                   onPressed: () {
                     setState(() {
+                      postService.changeLikeStateOnPost(
+                          widget.post.postId, user.userId);
                       widget.post.liked = !widget.post.liked;
                     });
                   },

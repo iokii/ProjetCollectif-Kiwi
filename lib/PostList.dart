@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'Models/UserStored.dart';
 import 'Provider/UserProvider.dart';
+import 'Services/PostService.dart';
 
 class PostList extends StatefulWidget {
   final Post post;
@@ -15,13 +16,9 @@ class PostList extends StatefulWidget {
   _PostListState createState() => _PostListState(post);
 }
 
-Future<void> changeLikeStateOnPost(String postId, String userId) async {
-  final response = await http
-      .put(Uri.parse('http://localhost:3000/posts/$postId/like/$userId'));
-}
-
 class _PostListState extends State<PostList> {
   _PostListState(Post post);
+  final postService = PostService();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,8 @@ class _PostListState extends State<PostList> {
                 icon: const Icon(Icons.star),
                 color: widget.post.liked ? Colors.yellow : Colors.white,
                 onPressed: () {
-                  changeLikeStateOnPost(widget.post.postId, user.userId);
+                  postService.changeLikeStateOnPost(
+                      widget.post.postId, user.userId);
                   setState(() {
                     widget.post.liked = !widget.post.liked;
                   });

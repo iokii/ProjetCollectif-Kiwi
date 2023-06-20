@@ -1,27 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'Services/UserService.dart';
 import 'global.dart';
-import 'package:http/http.dart' as http;
-
-Future<Map<String, dynamic>> createAccount(
-    username, email, password, confirmPassword) async {
-  final response =
-      await http.post(Uri.parse('http://localhost:3000/createAccount'), body: {
-    'username': username,
-    'email': email,
-    'password': password,
-    'confirmPassword': confirmPassword
-  });
-
-  Map<String, dynamic> responseBody = jsonDecode(response.body);
-
-  if (response.statusCode == 200) {
-    return {'success': true, 'message': responseBody['message']};
-  } else {
-    return {'success': false, 'message': responseBody['error']};
-  }
-}
 
 class CreateAccountPage extends StatefulWidget {
   @override
@@ -33,6 +12,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final secondPasswordController = TextEditingController();
+  final userService = UserService();
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +85,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () async {
-                var result = await createAccount(
+                var result = await userService.createAccount(
                     usernameController.text,
                     emailController.text,
                     passwordController.text,
