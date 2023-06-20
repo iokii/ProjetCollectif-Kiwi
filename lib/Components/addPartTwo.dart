@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/Components/Part/header.dart';
+import 'package:project/Components/TableEtiquetteCell.dart';
 import 'package:project/Models/global.dart';
-
-List<String> etiquettes = ["pomme", "boop", "Oui"];
 
 class AddPartTwo extends StatefulWidget {
   const AddPartTwo({super.key});
@@ -17,7 +16,16 @@ class _AddPartTwoState extends State<AddPartTwo> {
   //TODO: Faire la query et remplir la List
   //List<String> etiquettes;
 
-  String select = etiquettes.first;
+  List<String> etiquettes = ["", "pomme", "boop", "Oui"];
+  late List<String> etiquetteAdd;
+  late String select;
+
+  @override
+  void initState() {
+    super.initState();
+    etiquetteAdd = [];
+    select = etiquettes.first;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,56 +88,80 @@ class _AddPartTwoState extends State<AddPartTwo> {
                                 ))),
                       ),
                       Container(
-                          margin: const EdgeInsets.only(bottom: 20.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const Expanded(
-                                    flex: 3,
-                                    child: Text(
-                                      "Etiquettes :",
-                                      style: TextStyle(color: Colors.white),
-                                    )),
-                                Expanded(
-                                    flex: 3,
-                                    child: DropdownButton<String>(
-                                      value: select,
-                                      elevation: 16,
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                      dropdownColor: lightGray,
-                                      iconDisabledColor: lightGray,
-                                      underline: Container(
-                                        height: 1,
-                                        color: lightGray,
-                                      ),
-                                      onChanged: (String? value) {
-                                        setState(() {
-                                          select = value!;
-                                        });
-                                      },
-                                      items: etiquettes
-                                          .map<DropdownMenuItem<String>>(
-                                              (String value) {
-                                        return DropdownMenuItem<String>(
-                                          value: value,
-                                          child: Text(value),
-                                        );
-                                      }).toList(),
-                                    )),
-                                Expanded(
-                                    flex: 3,
-                                    child: IconButton(
-                                      onPressed: () {
-                                        //TODO add a la list des étiquettes
-                                      },
-                                      icon: const Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                    ))
-                              ])),
+                        margin: const EdgeInsets.only(bottom: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Expanded(
+                                flex: 3,
+                                child: Text(
+                                  "Etiquettes :",
+                                  style: TextStyle(color: Colors.white),
+                                )),
+                            Expanded(
+                                flex: 3,
+                                child: DropdownButton<String>(
+                                  value: select,
+                                  elevation: 16,
+                                  style: const TextStyle(color: Colors.white),
+                                  dropdownColor: lightGray,
+                                  iconDisabledColor: lightGray,
+                                  underline: Container(
+                                    height: 1,
+                                    color: lightGray,
+                                  ),
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      select = value!;
+                                    });
+                                  },
+                                  items: etiquettes
+                                      .map<DropdownMenuItem<String>>(
+                                          (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                )),
+                            Expanded(
+                              flex: 3,
+                              child: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    if (select != etiquettes.first) {
+                                      etiquetteAdd.add(select);
+                                      etiquettes.remove(select);
+                                      select = etiquettes.first;
+                                    }
+                                  });
+                                },
+                                icon: const Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                          padding: const EdgeInsets.all(15),
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              color: lightGray,
+                              border: Border.all(width: 1),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20))),
+                          child: GridView.count(
+                            crossAxisCount: 4,
+                            children: List.generate(
+                                etiquetteAdd.length,
+                                (index) => TableEtiquetteCell(
+                                    context, etiquetteAdd[index])),
+                          )),
                       const SizedBox(height: 50),
                       ElevatedButton(
                           style: ButtonStyle(
