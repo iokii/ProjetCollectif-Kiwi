@@ -2,12 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/Models/Post.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-import 'Models/UserStored.dart';
-import 'Provider/UserProvider.dart';
-import 'Services/PostService.dart';
+import '../Models/UserStored.dart';
+import '../Provider/UserProvider.dart';
+import '../Services/PostService.dart';
 
 import '../Models/global.dart';
 

@@ -49,50 +49,56 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
         Post(
             "Giga photo avec la team ou quoi la ah oui",
             "Une image de coucher de soleil sur l'océan: Les nuances dorées et oranges du soleil couchant se reflètent sur les vagues calmes de l'océan. Le ciel est rempli de nuages ​​roses et pourpres, créant un spectacle magnifique et paisible.",
+            true,
             "https://www.photo-paysage.com/albums/userpics/10001/thumb_Crepuscule_sur_le_lac_Leman.jpg",
             "Romain ou quoi",
             "https://avatars.githubusercontent.com/u/98802482?v=4",
-            ""),
+            DateTime.now()),
         Post(
             "La Joconde",
             "Petit dessin pepouze",
+            false,
             "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQ-FvbbAq5IaJUhtwxXEwY0D-jiZju02ejnNHx_bQWL_27GF3srhwJgqusMAqKh3QqU",
             "De Vinci",
             "https://avatars.githubusercontent.com/u/98802482?v=4",
-            ""),
+            DateTime.now()),
         Post(
             "Ouais",
             "oué",
+            true,
             "https://pbs.twimg.com/profile_images/1389204011589459972/OBN9k6dH_400x400.jpg",
             "oai",
             "https://avatars.githubusercontent.com/u/98802482?v=4",
-            ""),
+            DateTime.now()),
         Post(
             "Oshi no ko",
             "Ai",
+            true,
             "https://image.over-blog.com/RPg2aYflqYfwUqgl31QJsQxYIO4=/filters:no_upscale()/image%2F0715535%2F20221221%2Fob_7c67b0_oshinoko-gekijousenkouvisual.jpg",
             "ouai",
             "https://avatars.githubusercontent.com/u/98802482?v=4",
-            ""),
+            DateTime.now()),
       ],
       [
         Gallery(1, "Art", [
           Post(
               "Oshi no ko",
               "Ai",
+              false,
               "https://image.over-blog.com/RPg2aYflqYfwUqgl31QJsQxYIO4=/filters:no_upscale()/image%2F0715535%2F20221221%2Fob_7c67b0_oshinoko-gekijousenkouvisual.jpg",
               "ouai",
               "https://avatars.githubusercontent.com/u/98802482?v=4",
-              ""),
+              DateTime.now()),
         ]),
         Gallery(2, "Photo", [
           Post(
               "Giga photo avec la team ou quoi la ah oui",
               "Une image de coucher de soleil sur l'océan: Les nuances dorées et oranges du soleil couchant se reflètent sur les vagues calmes de l'océan. Le ciel est rempli de nuages ​​roses et pourpres, créant un spectacle magnifique et paisible.",
+              true,
               "https://www.photo-paysage.com/albums/userpics/10001/thumb_Crepuscule_sur_le_lac_Leman.jpg",
               "Romain ou quoi",
               "https://avatars.githubusercontent.com/u/98802482?v=4",
-              ""),
+              DateTime.now()),
         ])
       ],
       [
@@ -100,27 +106,30 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
           Post(
               "La Joconde",
               "Petit dessin pepouze",
+              true,
               "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQ-FvbbAq5IaJUhtwxXEwY0D-jiZju02ejnNHx_bQWL_27GF3srhwJgqusMAqKh3QqU",
               "De Vinci",
               "https://avatars.githubusercontent.com/u/98802482?v=4",
-              ""),
+              DateTime.now()),
         ])
       ],
       [
-        Post(
-            "boop",
-            "Mon interview sur TF1 !!!!",
-            "https://www.cip-national.fr/wp-content/uploads/2020/06/EQ5jGdc4BcDpCoXWO9mhTw1lrvo.png",
-            "Fitz",
-            "https://avatars.githubusercontent.com/u/98802482?v=4",
-            ""),
-        Post(
-            "pomme",
-            "Mon interview sur TF1 !!!!",
-            "https://www.cip-national.fr/wp-content/uploads/2020/06/EQ5jGdc4BcDpCoXWO9mhTw1lrvo.png",
-            "Fitz",
-            "https://avatars.githubusercontent.com/u/98802482?v=4",
-            "")
+        // Post(
+        //     "boop",
+        //     "Mon interview sur TF1 !!!!",
+        //     false,
+        //     "https://www.cip-national.fr/wp-content/uploads/2020/06/EQ5jGdc4BcDpCoXWO9mhTw1lrvo.png",
+        //     "Fitz",
+        //     "https://avatars.githubusercontent.com/u/98802482?v=4",
+        //     DateTime.now()),
+        // Post(
+        //     "pomme",
+        //     "Mon interview sur TF1 !!!!",
+        //     false,
+        //     "https://www.cip-national.fr/wp-content/uploads/2020/06/EQ5jGdc4BcDpCoXWO9mhTw1lrvo.png",
+        //     "Fitz",
+        //     "https://avatars.githubusercontent.com/u/98802482?v=4",
+        //     DateTime.now())
       ],
     );
 
