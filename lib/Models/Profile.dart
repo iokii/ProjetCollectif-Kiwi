@@ -34,4 +34,34 @@ class Profile {
     this.listCollect,
     this.listInfo,
   );
+
+  factory Profile.fromJson(Map<String, dynamic> json) {
+    var posts = (json['posts'] as List)
+        .map((item) => item == null ? null : Post.fromJson(item))
+        .where((item) => item != null)
+        .toList()
+        .cast<Post>();
+    var liked = (json['liked'] as List)
+        .map((item) => item == null ? null : Post.fromJson(item))
+        .where((item) => item != null)
+        .toList()
+        .cast<Post>();
+    var listCollect = [
+      Gallery(1, "Mes likes", liked),
+    ];
+    return Profile(
+      json['pdp'] ?? "",
+      json['name'] ?? "",
+      json['typeCompte'] ?? "",
+      json['description'] ?? "",
+      json['follow'] ?? 10,
+      json['followers'] ?? 10,
+      json['like'] ?? 10,
+      json['actu'] ?? [],
+      posts,
+      json['listGallery'] ?? [],
+      listCollect,
+      json['listInfo'] ?? [],
+    );
+  }
 }

@@ -15,7 +15,7 @@ class Post {
   factory Post.fromJson(Map<String, dynamic> json) {
     int seconds = json['date']['_seconds'];
     int nanoseconds = json['date']['_nanoseconds'];
-
+    print(json);
     // Convert seconds and nanoseconds into a DateTime object
     DateTime date = DateTime.fromMillisecondsSinceEpoch(
         seconds * 1000 + nanoseconds ~/ 1000000);

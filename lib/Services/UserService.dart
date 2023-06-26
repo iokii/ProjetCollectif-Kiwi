@@ -56,10 +56,12 @@ class UserService {
           await http.get(Uri.parse('http://localhost:3000/user/$userId'));
 
       Map<String, dynamic> responseBody = jsonDecode(response.body);
-      print(responseBody);
       if (response.statusCode == 200) {
         User newUserData = User.fromJson(responseBody['user']);
-        return {'success': true, 'user': newUserData};
+
+        var result = {'success': true, 'user': newUserData};
+
+        return result;
       } else {
         return {'success': false, 'message': responseBody['message']};
       }
