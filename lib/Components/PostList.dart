@@ -34,7 +34,7 @@ class _PostListState extends State<PostList> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: Text(widget.post.author,
-                    style: const TextStyle(color: Colors.white)),
+                    style: const TextStyle(color: white)),
               ),
             ]),
             Image.network(
@@ -43,7 +43,7 @@ class _PostListState extends State<PostList> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               IconButton(
                 icon: const Icon(Icons.star),
-                color: widget.post.isLiked ? Colors.yellow : Colors.white,
+                color: widget.post.isLiked ? Colors.yellow : white,
                 onPressed: () {
                   setState(() {
                     widget.post.isLiked = !widget.post.isLiked;
@@ -52,12 +52,12 @@ class _PostListState extends State<PostList> {
               ),
               Flexible(
                 child: Text(widget.post.title,
-                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                    style: const TextStyle(color: white, fontSize: 16),
                     overflow: TextOverflow.ellipsis),
               ),
               IconButton(
                 icon: const Icon(Icons.collections),
-                color: Colors.white,
+                color: white,
                 onPressed: () {
                   setState(() {});
                 },

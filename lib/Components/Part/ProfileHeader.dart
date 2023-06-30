@@ -1,8 +1,10 @@
 // ignore_for_file: no_logic_in_create_state, library_private_types_in_public_api, file_names
 
 import 'package:flutter/material.dart';
+import 'package:project/Data/User.dart';
 import 'package:project/Models/Profile.dart';
 import 'package:project/Models/global.dart';
+import 'package:provider/provider.dart';
 
 class ProfileHeader extends StatefulWidget {
   final Profile profile;
@@ -18,11 +20,15 @@ class _ProfileHeaderState extends State<ProfileHeader> {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Profile;
+    if (args.follow.isEmpty) {
+      Provider.of<DataUser>(context, listen: false).majFollow();
+    }
     return Row(children: [
       Padding(
         padding: const EdgeInsets.only(left: 50, top: 30),
         child: CircleAvatar(
-          backgroundImage: NetworkImage(widget.profile.pdp),
+          backgroundImage: NetworkImage(args.pdp),
           radius: 40,
         ),
       ),
@@ -34,32 +40,45 @@ class _ProfileHeaderState extends State<ProfileHeader> {
           children: [
             Text(
               widget.profile.name,
-              style: const TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold),
+              style: const TextStyle(color: white, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            Text(
-              textAlign: TextAlign.left,
-              widget.profile.typeCompte,
-              style: const TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold),
-            ),
+            if (args.typeCompte)
+              const Text(
+                textAlign: TextAlign.left,
+                "Artiste",
+                style: TextStyle(color: white, fontWeight: FontWeight.bold),
+              )
+            else
+              const Text(
+                textAlign: TextAlign.left,
+                "Voyageur",
+                style: TextStyle(color: white, fontWeight: FontWeight.bold),
+              ),
             const SizedBox(height: 15),
             Row(
               children: [
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text(
-                      widget.profile.followers.toString(),
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15),
-                    ),
-                    const Text(
-                      "abonnés",
-                      style: TextStyle(color: Colors.white),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/subs",
+                            arguments: args.follow);
+                      },
+                      child: Column(children: [
+                        Text(
+                          args.follow.length.toString(),
+                          style: const TextStyle(
+                              color: white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
+                        const Text(
+                          "abonnés",
+                          style: TextStyle(color: white),
+                        )
+                      ]),
                     )
                   ],
                 ),
@@ -67,18 +86,24 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text(
-                      widget.profile.follow.toString(),
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15),
-                    ),
-                    const Text(
-                      "abonnements",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/subs",
+                            arguments: args.followers);
+                      },
+                      child: Column(children: [
+                        Text(
+                          args.followers.length.toString(),
+                          style: const TextStyle(
+                              color: white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
+                        const Text(
+                          "abonnements",
+                          style: TextStyle(color: white),
+                        )
+                      ]),
                     )
                   ],
                 )

@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                     controller: usernameController,
                     decoration: InputDecoration(
                         labelText: "Username",
-                        labelStyle: const TextStyle(color: Colors.white),
+                        labelStyle: const TextStyle(color: white),
                         hintText: "Username",
                         fillColor: lightGray,
                         filled: true,
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                       labelText: "Password",
-                      labelStyle: const TextStyle(color: Colors.white),
+                      labelStyle: const TextStyle(color: white),
                       hintText: "Password",
                       fillColor: lightGray,
                       filled: true,

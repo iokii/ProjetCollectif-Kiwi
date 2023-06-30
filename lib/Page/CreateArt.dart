@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, invalid_use_of_visible_for_testing_member, unused_field, avoid_init_to_null
+// ignore_for_file: file_names, invalid_use_of_visible_for_testing_member, unused_field, avoid_init_to_null, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:project/Components/addPartTwo.dart';
@@ -10,7 +10,7 @@ class CreateArt extends StatefulWidget {
   static const route = '/addArt';
 
   @override
-  State<StatefulWidget> createState() => _CreateArtState();
+  _CreateArtState createState() => _CreateArtState();
 }
 
 class _CreateArtState extends State<CreateArt> {

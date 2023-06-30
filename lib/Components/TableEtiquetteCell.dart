@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, library_private_types_in_public_api
+// ignore_for_file: file_names, library_private_types_in_public_api, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:project/Models/global.dart';
@@ -20,10 +20,10 @@ Padding TableEtiquetteCell(context, String etiquette) {
                   alignment: Alignment.center,
                   color: lightGray,
                   height: 25,
-                  width: 30,
+                  width: 40,
                   child: Text(
                     etiquette,
-                    style: const TextStyle(fontSize: 10, color: Colors.white),
+                    style: const TextStyle(fontSize: 10, color: white),
                   ),
                 ),
                 const SizedBox(width: 3),
@@ -32,12 +32,10 @@ Padding TableEtiquetteCell(context, String etiquette) {
                   color: lightGray,
                   height: 25,
                   width: 20,
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.close,
-                        size: 10,
-                      )),
+                  child: const Icon(
+                    Icons.close,
+                    size: 10,
+                  ),
                 )
               ]),
         ),

@@ -59,7 +59,7 @@ class _ProfileCollectionState extends State<ProfileCollection> {
                                   ),
                                   Text(widget.listGallery[i].name,
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 17))
+                                          color: white, fontSize: 17))
                                 ],
                               )),
                             ))
@@ -92,7 +92,7 @@ class _ProfileCollectionState extends State<ProfileCollection> {
                                   ),
                                   Text(widget.listGallery[i].name,
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 17))
+                                          color: white, fontSize: 17))
                                 ],
                               )),
                             ))

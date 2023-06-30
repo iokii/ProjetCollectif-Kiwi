@@ -47,7 +47,7 @@ class _AddPartOneState extends State<AddPartOne> {
               children: [
                 const Text(
                   "Ajouter un média :",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: white),
                 ),
                 const SizedBox(width: 15),
                 ElevatedButton(

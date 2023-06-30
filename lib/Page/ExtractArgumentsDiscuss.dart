@@ -1,10 +1,10 @@
 // A Widget that extracts the necessary arguments from
 // the ModalRoute.
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, file_names, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:project/Models/Discussion.dart';
-import 'package:project/Models/discuss.dart';
+import 'package:project/Models/global.dart';
 
 import '../Components/Part/BottomIconBar.dart';
 import '../Components/Part/header.dart';
@@ -26,14 +26,14 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
     // final args = ModalRoute.of(context)!.settings.arguments as String;
-    final args = ModalRoute.of(context)!.settings.arguments as Discuss;
+    final args = ModalRoute.of(context)!.settings.arguments as int;
 
     //Request DB avec args pour l'id discuss
     Discussion discuss = Discussion(
-        "Fitz", "https://avatars.githubusercontent.com/u/98802482?v=4", [
-      TextDiscuss("0", "Beauty Fitz"),
-      TextDiscuss("1", "boop"),
-      TextDiscuss("0", "Hehehe"),
+        "Romain", "https://avatars.githubusercontent.com/u/83698843?v=4", [
+      TextDiscuss("0", "Eh pas mal ta dernière oeuvre !!"),
+      TextDiscuss("1", "Hey Salut !!"),
+      TextDiscuss("1", "Merci du compliment"),
     ]);
 
     List<Widget> messages() {
@@ -58,7 +58,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
                       child: Text(
                         discuss.username,
                         style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+                            color: white, fontWeight: FontWeight.bold),
                         maxLines: 1,
                         textAlign: TextAlign.left,
                       ),
@@ -73,7 +73,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
                           left: 15, top: 5, bottom: 5, right: 15),
                       child: Text(
                         discuss.messages[i].mess,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: white),
                       ),
                     ),
                   )
@@ -93,7 +93,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
                       left: 15, top: 5, bottom: 5, right: 15),
                   child: Text(
                     discuss.messages[i].mess,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: white),
                   ),
                 ),
               )));
@@ -114,7 +114,7 @@ class _DiscussPageState extends State<ExtractArgumentsDiscuss> {
                 child: Column(children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back),
-                    color: Colors.white,
+                    color: white,
                     onPressed: () {
                       Navigator.pushNamed(context, '/message');
                     },

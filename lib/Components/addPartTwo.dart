@@ -16,7 +16,13 @@ class _AddPartTwoState extends State<AddPartTwo> {
   //TODO: Faire la query et remplir la List
   //List<String> etiquettes;
 
-  List<String> etiquettes = ["", "pomme", "boop", "Oui"];
+  List<String> etiquettes = [
+    "",
+    "pomme",
+    "boop",
+    "Oui",
+    "bob",
+  ];
   late List<String> etiquetteAdd;
   late String select;
 
@@ -51,8 +57,7 @@ class _AddPartTwoState extends State<AddPartTwo> {
                             controller: nameController,
                             decoration: InputDecoration(
                                 labelText: "Nom de l'Oeuvre",
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: white),
                                 fillColor: lightGray,
                                 filled: true,
                                 border: OutlineInputBorder(
@@ -65,8 +70,7 @@ class _AddPartTwoState extends State<AddPartTwo> {
                             controller: descController,
                             decoration: InputDecoration(
                                 labelText: "Description de l'oeuvre",
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: white),
                                 fillColor: lightGray,
                                 filled: true,
                                 border: OutlineInputBorder(
@@ -79,8 +83,7 @@ class _AddPartTwoState extends State<AddPartTwo> {
                             controller: tagController,
                             decoration: InputDecoration(
                                 labelText: "Tags (séparé de \",\")",
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: white),
                                 fillColor: lightGray,
                                 filled: true,
                                 border: OutlineInputBorder(
@@ -97,14 +100,14 @@ class _AddPartTwoState extends State<AddPartTwo> {
                                 flex: 3,
                                 child: Text(
                                   "Etiquettes :",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: white),
                                 )),
                             Expanded(
                                 flex: 3,
                                 child: DropdownButton<String>(
                                   value: select,
                                   elevation: 16,
-                                  style: const TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: white),
                                   dropdownColor: lightGray,
                                   iconDisabledColor: lightGray,
                                   underline: Container(
@@ -139,7 +142,7 @@ class _AddPartTwoState extends State<AddPartTwo> {
                                 },
                                 icon: const Icon(
                                   Icons.add,
-                                  color: Colors.white,
+                                  color: white,
                                 ),
                               ),
                             )
@@ -159,8 +162,17 @@ class _AddPartTwoState extends State<AddPartTwo> {
                             crossAxisCount: 4,
                             children: List.generate(
                                 etiquetteAdd.length,
-                                (index) => TableEtiquetteCell(
-                                    context, etiquetteAdd[index])),
+                                (index) => InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          etiquettes.add(etiquetteAdd[index]);
+                                          etiquetteAdd
+                                              .remove(etiquetteAdd[index]);
+                                        });
+                                      },
+                                      child: TableEtiquetteCell(
+                                          context, etiquetteAdd[index]),
+                                    )),
                           )),
                       const SizedBox(height: 50),
                       ElevatedButton(
