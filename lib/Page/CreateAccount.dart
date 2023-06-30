@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../Models/global.dart';
+import '../Services/UserService.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -16,6 +17,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final secondPasswordController = TextEditingController();
+  final userService = UserService();
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +89,35 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-                onPressed: () {
-                  // Create acc here.
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(lightGray),
-                ),
-                child: const Text("Create account")),
+              onPressed: () async {
+                var result = await userService.createAccount(
+                    usernameController.text,
+                    emailController.text,
+                    passwordController.text,
+                    secondPasswordController.text);
+
+                if (result['success']) {
+                  // Navigate to a different page or show a success message
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content: Text(result['message']),
+                        backgroundColor: Colors.green),
+                  );
+                  Navigator.pushNamed(context, '/');
+                } else {
+                  // Show an error message
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content: Text(result['message']),
+                        backgroundColor: Colors.red),
+                  );
+                }
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(lightGray),
+              ),
+              child: const Text("Create account"),
+            ),
           ],
         ),
       ),

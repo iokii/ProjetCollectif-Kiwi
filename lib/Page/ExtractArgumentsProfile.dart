@@ -10,9 +10,16 @@ import 'package:project/Components/ProfileInfo.dart';
 import 'package:project/Components/ProfilePost.dart';
 import 'package:project/Models/Profile.dart';
 
+
+import 'package:project/Models/Post.dart';
+import 'package:provider/provider.dart';
+
 import '../Components/Part/BottomIconBar.dart';
 import '../Components/Part/header.dart';
+import '../Models/UserStored.dart';
 import '../Models/global.dart';
+import '../Provider/UserProvider.dart';
+import '../Services/ProfileService.dart';
 
 class ExtractArgumentsProfile extends StatefulWidget {
   const ExtractArgumentsProfile({super.key});
@@ -23,8 +30,11 @@ class ExtractArgumentsProfile extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ExtractArgumentsProfile> {
+  late Profile profile;
+  final profileService = ProfileService();
   @override
   Widget build(BuildContext context) {
+    UserStored user = Provider.of<UserProvider>(context, listen: false).user;
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
     // ignore: unused_local_variable

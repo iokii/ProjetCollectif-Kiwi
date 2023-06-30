@@ -4,6 +4,7 @@ import 'package:project/Data/User.dart';
 
 import 'package:flutter/material.dart';
 import 'package:project/Models/Profile.dart';
+
 import 'package:project/Page/CreateArt.dart';
 import 'package:project/Page/ExtractArgumentsCollection.dart';
 import 'package:project/Page/SearchPage.dart';
@@ -17,6 +18,7 @@ import 'Page/ResetPassword.dart';
 import 'Page/CreateAccount.dart';
 import 'Page/homepage.dart';
 import 'Page/login.dart';
+import 'Provider/UserProvider.dart';
 
 void main() {
   DataUser users = DataUser();
@@ -32,6 +34,7 @@ void main() {
       child: MyApp(
         actualAccount: users.fitz,
       ),
+
     ),
   );
 }

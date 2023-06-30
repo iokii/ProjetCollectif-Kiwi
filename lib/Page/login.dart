@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Models/global.dart';
+import '../Services/UserService.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   // of the TextField.
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final userService = UserService();
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +66,33 @@ class _LoginPageState extends State<LoginPage> {
                       ))),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/homepage');
-                  // Validate the login form here.
+                onPressed: () async {
+                  if (usernameController.text.isEmpty ||
+                      passwordController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Username and password cannot be empty'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  } else {
+                    var result = await userService.loginIntoAccount(
+                        usernameController.text,
+                        passwordController.text,
+                        context);
+
+                    if (result['success']) {
+                      Navigator.pushNamed(context, '/homepage');
+                    } else {
+                      // Show an error message
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(result['message']),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(lightGray),

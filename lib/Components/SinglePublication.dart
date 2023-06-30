@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../Models/Profile.dart';
 
+
 class SinglePublication extends StatefulWidget {
   final Post post;
   const SinglePublication(this.post, {super.key});
@@ -19,12 +20,14 @@ class SinglePublication extends StatefulWidget {
 
 class _SinglePublicationState extends State<SinglePublication> {
   _SinglePublicationState(Post post);
+  final postService = PostService();
 
   late List<Profile> listUser;
   late int link;
 
   @override
   Widget build(BuildContext context) {
+    UserStored user = Provider.of<UserProvider>(context, listen: false).user;
     return Card(
         color: const Color(0xFF323232),
         shadowColor: Colors.transparent,
@@ -68,9 +71,12 @@ class _SinglePublicationState extends State<SinglePublication> {
                 IconButton(
                   icon: const Icon(Icons.star),
                   color: widget.post.isLiked ? Colors.yellow : white,
+
                   onPressed: () {
                     setState(() {
-                      widget.post.isLiked = !widget.post.isLiked;
+                      postService.changeLikeStateOnPost(
+                          widget.post.postId, user.userId);
+                      widget.post.liked = !widget.post.liked;
                     });
                   },
                 ),

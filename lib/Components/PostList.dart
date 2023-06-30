@@ -2,6 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/Models/Post.dart';
+import 'package:provider/provider.dart';
+
+import '../Models/UserStored.dart';
+import '../Provider/UserProvider.dart';
+import '../Services/PostService.dart';
 
 import '../Models/global.dart';
 
@@ -16,9 +21,12 @@ class PostList extends StatefulWidget {
 
 class _PostListState extends State<PostList> {
   _PostListState(Post post);
+  final postService = PostService();
 
   @override
   Widget build(BuildContext context) {
+    UserStored user = Provider.of<UserProvider>(context, listen: false).user;
+
     return Container(
         color: semiLightGray,
         child: Column(
@@ -43,10 +51,14 @@ class _PostListState extends State<PostList> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               IconButton(
                 icon: const Icon(Icons.star),
+
                 color: widget.post.isLiked ? Colors.yellow : white,
+
                 onPressed: () {
+                  postService.changeLikeStateOnPost(
+                      widget.post.postId, user.userId);
                   setState(() {
-                    widget.post.isLiked = !widget.post.isLiked;
+                    widget.post.liked = !widget.post.liked;
                   });
                 },
               ),
