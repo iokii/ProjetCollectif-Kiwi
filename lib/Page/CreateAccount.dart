@@ -37,7 +37,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     controller: usernameController,
                     decoration: InputDecoration(
                         labelText: "Username",
-                        labelStyle: const TextStyle(color: Colors.white),
+                        labelStyle: const TextStyle(color: white),
                         hintText: "Username",
                         fillColor: lightGray,
                         filled: true,
@@ -50,7 +50,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     controller: emailController,
                     decoration: InputDecoration(
                         labelText: "Email",
-                        labelStyle: const TextStyle(color: Colors.white),
+                        labelStyle: const TextStyle(color: white),
                         hintText: "Email",
                         fillColor: lightGray,
                         filled: true,
@@ -64,7 +64,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                       labelText: "Password",
-                      labelStyle: const TextStyle(color: Colors.white),
+                      labelStyle: const TextStyle(color: white),
                       hintText: "Password",
                       fillColor: lightGray,
                       filled: true,
@@ -79,7 +79,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                       labelText: "Confirm password",
-                      labelStyle: const TextStyle(color: Colors.white),
+                      labelStyle: const TextStyle(color: white),
                       hintText: "Confirm password",
                       fillColor: lightGray,
                       filled: true,

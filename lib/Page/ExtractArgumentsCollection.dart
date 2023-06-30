@@ -1,8 +1,9 @@
 // A Widget that extracts the necessary arguments from
 // the ModalRoute.
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
+import 'package:project/Components/showPostInRow.dart';
 import 'package:project/Models/ArgumentScreenCollection.dart';
 
 import '../Components/DetailsPublication.dart';
@@ -40,7 +41,7 @@ class _ProfilePageState extends State<ExtractArgumentsCollection> {
                 child: Column(children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back),
-                    color: Colors.white,
+                    color: white,
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -50,109 +51,12 @@ class _ProfilePageState extends State<ExtractArgumentsCollection> {
           ),
           Text(
             args.gallery.name,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: white),
           ),
           Padding(
             padding: EdgeInsets.all(7),
-            child: Container(
-              color: darkGray,
-              child: SingleChildScrollView(
-                child: Table(
-                  columnWidths: const {
-                    0: FractionColumnWidth(.3),
-                    1: FractionColumnWidth(.3),
-                    2: FractionColumnWidth(.3),
-                  },
-                  children: [
-                    TableRow(children: [
-                      TableCell(
-                        child: Column(children: [
-                          if (args.gallery.listPublication.isNotEmpty)
-                            for (int i = 0;
-                                i < args.gallery.listPublication.length;
-                                i += 3)
-                              Padding(
-                                padding: EdgeInsets.only(top: 10, right: 0),
-                                child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailsPublication(args
-                                                      .gallery
-                                                      .listPublication[i])));
-                                    },
-                                    child: Image.network(
-                                      args.gallery.listPublication[i].urlMedia,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.31,
-                                    )),
-                              ),
-                        ]),
-                      ),
-                      TableCell(
-                        child: Column(children: [
-                          if (args.gallery.listPublication.length > 1)
-                            for (int i = 1;
-                                i < args.gallery.listPublication.length;
-                                i += 3)
-                              Padding(
-                                  padding: EdgeInsets.only(top: 10, right: 0),
-                                  child: Row(children: [
-                                    InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      DetailsPublication(args
-                                                              .gallery
-                                                              .listPublication[
-                                                          i])));
-                                        },
-                                        child: Image.network(
-                                          args.gallery.listPublication[i]
-                                              .urlMedia,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.31,
-                                        )),
-                                  ])),
-                        ]),
-                      ),
-                      TableCell(
-                        child: Column(children: [
-                          if (args.gallery.listPublication.length > 2)
-                            for (int i = 2;
-                                i < args.gallery.listPublication.length;
-                                i += 3)
-                              Padding(
-                                padding: EdgeInsets.only(top: 10, right: 0),
-                                child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailsPublication(args
-                                                      .gallery
-                                                      .listPublication[i])));
-                                    },
-                                    child: Image.network(
-                                      args.gallery.listPublication[i].urlMedia,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.31,
-                                    )),
-                              ),
-                        ]),
-                      ),
-                    ])
-                  ],
-                ),
-              ),
-            ),
+            child: showPostInRow(
+                posts: args.gallery.listPublication, heightMult: 0.736),
           )
         ]),
         bottomNavigationBar: BottomIconBar(context));

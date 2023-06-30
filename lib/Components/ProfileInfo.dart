@@ -57,7 +57,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                           ),
                           Text(
                             widget.listInfo[i].title,
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: white),
                           )
                         ])),
                   ),
@@ -88,7 +88,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                             if (i + 1 < widget.listInfo.length)
                               Text(
                                 widget.listInfo[i + 1].title,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(color: white),
                               )
                           ])),
                   ])),
@@ -119,7 +119,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                             if (i + 2 < widget.listInfo.length)
                               Text(
                                 widget.listInfo[i + 2].title,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(color: white),
                               )
                           ])),
                   ])),
@@ -150,7 +150,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                             if (i + 3 < widget.listInfo.length)
                               Text(
                                 widget.listInfo[i + 3].title,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(color: white),
                               )
                           ])),
                   ])),

@@ -1,8 +1,9 @@
+// ignore_for_file: file_names
+
 class Post {
-  Post(this.title, this.desc, this.liked, this.urlMedia, this.author,
-      this.authorPfp, this.date,
-      {this.postId = ""});
-  String postId = "";
+  Post(this.title, this.desc, this.isLiked, this.urlMedia, this.author,
+      this.authorPfp, this.date);
+
   String title = "";
   String desc = "";
   bool liked = false;

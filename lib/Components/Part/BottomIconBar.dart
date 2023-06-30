@@ -1,8 +1,14 @@
+// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:project/Page/ExtractArgumentsProfile.dart';
+import 'package:provider/provider.dart';
+import '../../Data/User.dart';
+import '../../Models/Profile.dart';
 import '../../Models/global.dart';
 
 BottomAppBar BottomIconBar(context) {
+  Profile loggedin = Provider.of<DataUser>(context, listen: false).fitz;
   var iconSize = 35.0;
   return BottomAppBar(
     //Footer a mettre en widget
@@ -16,15 +22,17 @@ BottomAppBar BottomIconBar(context) {
           },
           icon: const Icon(
             Icons.home,
-            color: Colors.white,
+            color: white,
           ),
           iconSize: iconSize,
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/search");
+          },
           icon: const Icon(
             Icons.search,
-            color: Colors.white,
+            color: white,
           ),
           iconSize: iconSize,
         ),
@@ -34,7 +42,7 @@ BottomAppBar BottomIconBar(context) {
           },
           icon: const Icon(
             Icons.message,
-            color: Colors.white,
+            color: white,
           ),
           iconSize: iconSize,
         ),
@@ -43,12 +51,12 @@ BottomAppBar BottomIconBar(context) {
             Navigator.pushNamed(
               context,
               ExtractArgumentsProfile.profile,
-              arguments: 1,
+              arguments: loggedin,
             );
           },
           icon: const Icon(
             Icons.person,
-            color: Colors.white,
+            color: white,
           ),
           iconSize: iconSize,
         )

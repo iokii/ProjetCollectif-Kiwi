@@ -13,7 +13,7 @@ AppBar header(
         padding: EdgeInsets.all(10.0),
         child: CircleAvatar(
           backgroundImage: NetworkImage(
-              "https://www.snexplores.org/wp-content/uploads/2022/09/091622_FK_fishing-fox_feat-1030x580.jpg"),
+              "https://avatars.githubusercontent.com/u/98802482?v=4"),
           radius: 10,
         )),
     // if show parameter, show an icon

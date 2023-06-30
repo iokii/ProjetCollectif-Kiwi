@@ -11,6 +11,8 @@ import '../Models/global.dart';
 import '../Provider/UserProvider.dart';
 import '../Services/PostService.dart';
 
+import '../Data/Posts.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -24,6 +26,7 @@ const loginText = "Log into $applicationName !";
 class _HomePageState extends State<HomePage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
   late Post _selectedPost;
   final postService = PostService();
 
@@ -33,30 +36,24 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: header(context: context, artist: true),
       backgroundColor: darkGray,
-      body: FutureBuilder<List<dynamic>>(
-        future: postService.getPosts(user.userId),
-        builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            var listPosts = snapshot.data!;
-            return ListView.builder(
-              itemCount: listPosts.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _selectedPost = listPosts[index];
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              DetailsPublication(_selectedPost),
-                        ),
-                      );
-                    });
-                  },
-                  child: Card(child: PostList(listPosts[index])),
-                );
+      body: SizedBox(
+        child: ListView.builder(
+          itemCount: listAllPost.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  _selectedPost = listAllPost[index];
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPublication(_selectedPost),
+                    ),
+                  );
+                });
               },
+              child: Card(child: PostList(listAllPost[index])),
+},
             );
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");

@@ -4,11 +4,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/Components/Part/ProfileHeader.dart';
+import 'package:project/Components/ProfileActu.dart';
 import 'package:project/Components/ProfileCollection.dart';
 import 'package:project/Components/ProfileInfo.dart';
 import 'package:project/Components/ProfilePost.dart';
-import 'package:project/Models/Gallery.dart';
 import 'package:project/Models/Profile.dart';
+
 
 import 'package:project/Models/Post.dart';
 import 'package:provider/provider.dart';
@@ -37,83 +38,49 @@ class _ProfilePageState extends State<ExtractArgumentsProfile> {
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
     // ignore: unused_local_variable
-    final args = ModalRoute.of(context)!.settings.arguments as int;
+    final args = ModalRoute.of(context)!.settings.arguments as Profile;
 
     //Request DB avec args pour l'id discuss
 
     return Scaffold(
         appBar: header(showParameter: true, context: context),
         backgroundColor: const Color(0xFF323232),
-        body: FutureBuilder<Map<String, dynamic>>(
-            future: profileService.getProfile(user.userId),
-            builder: (BuildContext context,
-                AsyncSnapshot<Map<String, dynamic>> snapshot) {
-              if (snapshot.hasData) {
-                profile = snapshot.data!['profile'];
-                return Column(mainAxisSize: MainAxisSize.max, children: [
-                  ProfileHeader(profile),
-                  SizedBox(
-                    height: 50,
+        body: Column(mainAxisSize: MainAxisSize.max, children: [
+          ProfileHeader(args),
+          SizedBox(height: 30),
+          if (args.actu.isNotEmpty)
+            ProfileActu(listActu: args.actu)
+          else
+            SizedBox(height: 50),
+          Expanded(
+            flex: 3,
+            child: DefaultTabController(
+              length: 4,
+              child: Scaffold(
+                appBar: AppBar(
+                  backgroundColor: darkGray,
+                  toolbarHeight: 0,
+                  bottom: const TabBar(
+                    tabs: [
+                      Tab(icon: Icon(Icons.photo_camera)),
+                      Tab(icon: Icon(Icons.menu_book_rounded)),
+                      Tab(icon: Icon(Icons.bookmark)),
+                      Tab(icon: Icon(Icons.info_outlined)),
+                    ],
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 40,
-                    child: Text(
-                      "Actualités :",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: profile.actu.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: EdgeInsets.only(left: 20, top: 15),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: CircleAvatar(
-                            backgroundImage: NetworkImage(profile.actu[index]),
-                            radius: 30,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: DefaultTabController(
-                      length: 4,
-                      child: Scaffold(
-                        appBar: AppBar(
-                          backgroundColor: darkGray,
-                          toolbarHeight: 0,
-                          bottom: const TabBar(
-                            tabs: [
-                              Tab(icon: Icon(Icons.photo_camera)),
-                              Tab(icon: Icon(Icons.menu_book_rounded)),
-                              Tab(icon: Icon(Icons.bookmark)),
-                              Tab(icon: Icon(Icons.info_outlined)),
-                            ],
-                          ),
-                        ),
-                        body: TabBarView(
-                          children: [
-                            ProfilePost(profile.publications),
-                            ProfileCollection(profile.listGallery, "gallery"),
-                            ProfileCollection(
-                                profile.listCollect, "Collection"),
-                            ProfileInfo(profile.listInfo),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ]);
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            }),
+                ),
+                body: TabBarView(
+                  children: [
+                    ProfilePost(args.publications),
+                    ProfileCollection(args.listGallery, "gallery"),
+                    ProfileCollection(args.listCollect, "Collection"),
+                    ProfileInfo(args.listInfo),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ]),
         bottomNavigationBar: BottomIconBar(context));
   }
 }

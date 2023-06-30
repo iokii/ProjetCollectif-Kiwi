@@ -32,8 +32,7 @@ class _DetailsPublicationState extends State<DetailsPublication> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon:
-                  const Icon(Icons.arrow_back, color: Colors.white, size: 30)),
+              icon: const Icon(Icons.arrow_back, color: white, size: 30)),
           Expanded(child: SinglePublication(widget.post)),
         ],
       ),

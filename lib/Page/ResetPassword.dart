@@ -1,4 +1,5 @@
-// ignore: file_names
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../Models/global.dart';
@@ -32,7 +33,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     controller: emailController,
                     decoration: InputDecoration(
                         labelText: "Email",
-                        labelStyle: const TextStyle(color: Colors.white),
+                        labelStyle: const TextStyle(color: white),
                         hintText: "Email",
                         fillColor: lightGray,
                         filled: true,

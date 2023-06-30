@@ -1,7 +1,5 @@
 // ignore_for_file: no_logic_in_create_state, library_private_types_in_public_api
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import '../Components/Part/BottomIconBar.dart';
 import '../Components/Part/header.dart';
@@ -33,7 +31,7 @@ class _OptionState extends State<Option> {
               child: Column(children: [
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
-                  color: Colors.white,
+                  color: white,
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -48,23 +46,22 @@ class _OptionState extends State<Option> {
                 Icon(
                   Icons.map,
                   size: 50,
-                  color: Colors.white,
+                  color: white,
                 ),
                 SizedBox(width: 50),
                 Text(
                   "Language : ",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: white),
                 ),
                 Text(
                   "Français",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: white, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 70),
                 Icon(
                   Icons.navigate_next_sharp,
                   size: 25,
-                  color: Colors.white,
+                  color: white,
                 )
               ])),
         ),
@@ -75,18 +72,18 @@ class _OptionState extends State<Option> {
                   Icon(
                     Icons.brush,
                     size: 50,
-                    color: Colors.white,
+                    color: white,
                   ),
                   SizedBox(width: 50),
                   Text(
                     "Devenir un artiste",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: white),
                   ),
                   SizedBox(width: 70),
                   Icon(
                     Icons.navigate_next_sharp,
                     size: 25,
-                    color: Colors.white,
+                    color: white,
                   )
                 ]))),
       ]),
